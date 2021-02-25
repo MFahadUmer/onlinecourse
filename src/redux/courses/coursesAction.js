@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {
+  ADD_COURSE,
   FETCH_COURSE_FAILURE,
   FETCH_COURSE_REQUEST,
   FETCH_COURSE_SUCCESS,
@@ -19,9 +20,25 @@ export const fetchCourseFailure = error => ({
   payload: error,
 });
 
+export const addCourseAction = courseObj => ({
+  type: ADD_COURSE,
+  payload: courseObj,
+});
+
+export const addCourse = courseObj => dispatch => {
+  axios.post('http://127.0.0.1:3000/courses/', courseObj)
+    .then(response => {
+      const course = response.data;
+      dispatch(addCourseAction(course));
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
 export const fetchCourse = () => dispatch => {
   dispatch(fetchCourseRequest());
-  axios.get('http://127.0.0.1:3000/courses/')
+  axios.get('http://127.0.0.1:3000/courses')
     .then(response => {
       const courses = response.data;
       dispatch(fetchCourseSuccess(courses));

@@ -1,5 +1,9 @@
-import {act} from "@testing-library/react";
-import {FETCH_COURSE_FAILURE, FETCH_COURSE_REQUEST, FETCH_COURSE_SUCCESS} from "./coursesActionTypes";
+import {
+  ADD_COURSE,
+  FETCH_COURSE_FAILURE,
+  FETCH_COURSE_REQUEST,
+  FETCH_COURSE_SUCCESS,
+} from './coursesActionTypes';
 
 const initialState = {
   loading: false,
@@ -24,6 +28,12 @@ const courseReducer = (state = initialState, action) => {
       loading: false,
       error: action.payload,
     };
+
+    case ADD_COURSE:
+      console.log('yessssssssssssssssssssssss');
+      // eslint-disable-next-line no-case-declarations
+      const courses = state.courses.concat(action.payload);
+      return { ...state, courses };
 
     default: return state;
   }
