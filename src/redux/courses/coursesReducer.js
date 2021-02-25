@@ -11,6 +11,8 @@ const initialState = {
   error: '',
 };
 
+let courses = '';
+
 const courseReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_COURSE_REQUEST: return {
@@ -30,9 +32,8 @@ const courseReducer = (state = initialState, action) => {
     };
 
     case ADD_COURSE:
-      console.log('yessssssssssssssssssssssss');
-      // eslint-disable-next-line no-case-declarations
-      const courses = state.courses.concat(action.payload);
+      courses = state.courses.concat(action.payload);
+      console.log(courses);
       return { ...state, courses };
 
     default: return state;

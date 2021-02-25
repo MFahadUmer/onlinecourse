@@ -20,16 +20,14 @@ export const fetchCourseFailure = error => ({
   payload: error,
 });
 
-export const addCourseAction = courseObj => ({
-  type: ADD_COURSE,
-  payload: courseObj,
-});
-
 export const addCourse = courseObj => dispatch => {
   axios.post('http://127.0.0.1:3000/courses/', courseObj)
     .then(response => {
       const course = response.data;
-      dispatch(addCourseAction(course));
+      dispatch({
+        type: ADD_COURSE,
+        payload: course,
+      });
     })
     .catch(error => {
       console.log(error);

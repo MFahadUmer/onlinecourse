@@ -7,17 +7,21 @@ const AppContainer = () => {
   useEffect(() => {
     dispatch(fetchCourse());
   }, []);
+  const myCourse = {
+    course_title: 'Seerat E Muhammadia',
+    course_details: 'Seerat E Mustafa',
+    course_author: 'Seerat E Mustafa',
+    course_requirements: 'Seerat E Mustafa',
+    course_difficulty: 'Seerat E Mustafa',
+  };
+  const handleChange = () => {
+    dispatch(addCourse(myCourse));
+  };
   return (
     <div>
       <button
         type="submit"
-        onClick={addCourse({
-          course_title: 'Seerat E Muhammadia',
-          course_details: 'Seerat E Mustafa',
-          course_author: 'Seerat E Mustafa',
-          course_requirements: 'Seerat E Mustafa',
-          course_difficulty: 'Seerat E Mustafa',
-        })}
+        onClick={() => handleChange()}
       >
         Add
       </button>
