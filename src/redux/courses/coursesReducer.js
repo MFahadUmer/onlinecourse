@@ -33,7 +33,6 @@ const courseReducer = (state = initialState, action) => {
 
     case ADD_COURSE:
       courses = state.courses.concat(action.payload);
-      console.log(courses);
       return { ...state, courses };
 
     default: return state;

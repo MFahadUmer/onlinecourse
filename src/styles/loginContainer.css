@@ -1,0 +1,19 @@
+.loginContainer {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
+  background-color: lightblue;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginForm > input {
+  padding: 15px 20px;
+  margin-top: 25px;
+}
