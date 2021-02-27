@@ -48,8 +48,8 @@ const SignupContainer = () => {
         <input type="text" name="lastname" placeholder="Last Name" onChange={e => handleChange(e)} />
         <input type="text" name="username" placeholder="Username" onChange={e => handleChange(e)} />
         <input type="email" name="email" placeholder="Email" onChange={e => handleChange(e)} />
-        <select name="usertype" onChange={e => handleChange(e)}>
-          <option value="user" selected="selected">User</option>
+        <select name="usertype" defaultValue="user" onChange={e => handleChange(e)}>
+          <option value="user">User</option>
           <option value="author">Author</option>
         </select>
         <input type="password" name="password" placeholder="password" onChange={e => handleChange(e)} />

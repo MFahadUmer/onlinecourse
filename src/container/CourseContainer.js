@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import Courses from '../component/Courses';
 
 const CourseContainer = () => {
-  const courses = useSelector(state => state.course.courses);
+  const courses = useSelector(state => state.course);
   console.log(courses);
-  const coursesList = courses.map(course => (
+  const coursesList = courses.courses.map(course => (
     <Courses
       key={course.title}
       title={course.title}
