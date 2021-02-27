@@ -3,6 +3,7 @@ import React from 'react';
 // import { fetchCourse } from '../redux/courses/coursesAction';
 // import { userRegistration } from '../redux/users/userAction';
 import LoginContainer from './LoginContainer';
+// import SignupContainer from './SignupContainer';
 // eslint-disable-next-line
 const AppContainer = () => {
   // const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const AppContainer = () => {
   //   dispatch(userRegistration(userObj));
   // };
   return (
-    <div>
+    <div className="logContainer">
       <LoginContainer />
     </div>
   );

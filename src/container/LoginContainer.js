@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { userLogin } from '../redux/users/userAction';
 
 const LoginContainer = () => {
+  const loggedUser = useSelector(state => state.user);
   const dispatch = useDispatch();
-  // eslint-disable-next-line no-unused-vars
   const [username, setUsername] = useState('');
-  // eslint-disable-next-line no-unused-vars
   const [password, setpassword] = useState('');
+
+  if (loggedUser.user.length === 0) {
+    console.log('emptyyyyyyyyy');
+  } else {
+    console.log('notEMpty');
+  }
 
   const handleChange = e => {
     if (e.target.name === 'username') {
