@@ -1,10 +1,11 @@
 import React from 'react';
+import AuthorPanelNavbar from '../component/AuthorPanelNavbar';
 
 const AuthorPanelContainer = () => {
   console.log('yessss');
   return (
     <div>
-      Hey World From Author Panel
+      <AuthorPanelNavbar />
     </div>
   );
 };
