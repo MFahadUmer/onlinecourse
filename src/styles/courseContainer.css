@@ -1,0 +1,27 @@
+.coursesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coursesDetails {
+  width: 245px;
+}
+
+.courseImage {
+  height: 270px;
+  width: 100%;
+}
+
+.courseDetails {
+  display: flex;
+  justify-content: center;
+}
+
+.courseTitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: white;
+}

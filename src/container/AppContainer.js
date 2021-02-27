@@ -1,15 +1,19 @@
-import React from 'react';
-// import { useDispatch } from 'react-redux';
-// import { fetchCourse } from '../redux/courses/coursesAction';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchCourse } from '../redux/courses/coursesAction';
 // import { userRegistration } from '../redux/users/userAction';
-import LoginContainer from './LoginContainer';
+// import LoginContainer from './LoginContainer';
+// import SignupContainer from './SignupContainer';
+// import LoginContainer from './LoginContainer';
+import SignupContainer from './SignupContainer';
+// import CourseContainer from './CourseContainer';
 // import SignupContainer from './SignupContainer';
 // eslint-disable-next-line
 const AppContainer = () => {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchCourse());
-  // }, []);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCourse());
+  }, []);
   // const myCourse = {
   //   course_title: 'Seerat E Muhammadia',
   //   course_details: 'Seerat E Mustafa',
@@ -35,7 +39,7 @@ const AppContainer = () => {
   // };
   return (
     <div className="logContainer">
-      <LoginContainer />
+      <SignupContainer />
     </div>
   );
 };

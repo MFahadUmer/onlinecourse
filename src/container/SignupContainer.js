@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { userRegistration } from '../redux/users/userAction';
+import LoginContainer from './LoginContainer';
 
 const SignupContainer = () => {
+  const user = useSelector(state => state.user);
+  console.log(user);
   const dispatch = useDispatch();
   const [firstname, setfirstname] = useState('');
   const [lastname, setlastname] = useState('');
@@ -37,19 +40,25 @@ const SignupContainer = () => {
     }));
   };
 
+  if (user.user.length === 0) {
+    return (
+      <div className="signupContainer">
+        <input type="text" name="firstname" placeholder="First Name" onChange={e => handleChange(e)} />
+        <input type="text" name="lastname" placeholder="Last Name" onChange={e => handleChange(e)} />
+        <input type="text" name="username" placeholder="Username" onChange={e => handleChange(e)} />
+        <input type="email" name="email" placeholder="Email" onChange={e => handleChange(e)} />
+        <select name="usertype" onChange={e => handleChange(e)}>
+          <option value="user" selected="selected">User</option>
+          <option value="author">Author</option>
+        </select>
+        <input type="password" name="password" placeholder="password" onChange={e => handleChange(e)} />
+        <input type="submit" value="signup" onClick={() => handleSubmit()} />
+      </div>
+    );
+  }
+
   return (
-    <div className="signupContainer">
-      <input type="text" name="firstname" placeholder="First Name" onChange={e => handleChange(e)} />
-      <input type="text" name="lastname" placeholder="Last Name" onChange={e => handleChange(e)} />
-      <input type="text" name="username" placeholder="Username" onChange={e => handleChange(e)} />
-      <input type="email" name="email" placeholder="Email" onChange={e => handleChange(e)} />
-      <select name="usertype" value="user" onChange={e => handleChange(e)}>
-        <option value="user">User</option>
-        <option value="author">Author</option>
-      </select>
-      <input type="password" name="password" placeholder="password" onChange={e => handleChange(e)} />
-      <input type="submit" value="signup" onClick={() => handleSubmit()} />
-    </div>
+    <LoginContainer />
   );
 };
 
