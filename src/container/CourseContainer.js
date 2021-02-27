@@ -4,6 +4,7 @@ import Courses from '../component/Courses';
 
 const CourseContainer = () => {
   const courses = useSelector(state => state.course.courses);
+  console.log(courses);
   const coursesList = courses.map(course => (
     <Courses
       key={course.title}
@@ -17,6 +18,7 @@ const CourseContainer = () => {
   ));
   return (
     <div>
+      <h2>Hey From COurse COntainer</h2>
       {coursesList}
     </div>
   );
