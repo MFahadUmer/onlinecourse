@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchCourse } from '../redux/courses/coursesAction';
 import Courses from '../component/Courses';
 
@@ -23,8 +24,9 @@ const CourseContainer = () => {
   ));
   return (
     <div>
-      <h2>Hey From COurse COntainer</h2>
+      <h2>Hey From Course COntainer</h2>
       {coursesList}
+      <Link to="/favourites">Favourite</Link>
     </div>
   );
 };
