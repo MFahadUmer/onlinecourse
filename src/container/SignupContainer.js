@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { userRegistration } from '../redux/users/userAction';
 import LoginContainer from './LoginContainer';
 
@@ -53,6 +54,7 @@ const SignupContainer = () => {
         </select>
         <input type="password" name="password" placeholder="password" onChange={e => handleChange(e)} />
         <input type="submit" value="signup" onClick={() => handleSubmit()} />
+        <Link to="/signin/">SIGNIN</Link>
       </div>
     );
   }
