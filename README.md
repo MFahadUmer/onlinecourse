@@ -8,7 +8,7 @@
 
 ## Live Preview
 
-[Click Here](https://recipes-react-capstone.herokuapp.com/) for Preview
+[Click Here](https://reactonlinecourse.herokuapp.com/) for Preview
 
 ## Run this app on Local machine
 
