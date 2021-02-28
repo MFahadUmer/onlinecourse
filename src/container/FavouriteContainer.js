@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchCourse } from '../redux/courses/coursesAction';
+import { fetchFavouriteCourses } from '../redux/favourites/favouriteActions';
 
 const FavouriteContainer = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchCourse());
+    dispatch(fetchFavouriteCourses(2));
   }, []);
   return (
     <div>
-      Hey WOrld!
+      Hey World
     </div>
   );
 };

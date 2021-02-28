@@ -1,17 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { fetchCourse } from '../redux/courses/coursesAction';
+import UserNavbar from '../component/userNavbar';
+import FavouriteContainer from './FavouriteContainer';
+import AllCoursesContainer from './AllCoursesContainer';
+import LogoutContainer from './LogoutContainer';
 import Courses from '../component/Courses';
 
 const CourseContainer = () => {
+  const course = useSelector(state => state.course);
+  console.log(course);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCourse());
   }, []);
-  const courses = useSelector(state => state.course);
-  console.log(courses);
-  const coursesList = courses.courses.map(course => (
+  const coursesList = course.courses.map(course => (
     <Courses
       key={course.title}
       title={course.title}
@@ -22,11 +26,17 @@ const CourseContainer = () => {
       Uploaded={course.date}
     />
   ));
+  console.log(coursesList);
   return (
     <div>
-      <h2>Hey From Course COntainer</h2>
-      {coursesList}
-      <Link to="/favourites">Favourite</Link>
+      <BrowserRouter>
+        <UserNavbar />
+        <Switch>
+          <Route path="/favourites/" component={FavouriteContainer} />
+          <Route default path="/allCourses/" component={AllCoursesContainer} />
+          <Route path="/logout" component={LogoutContainer} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 };

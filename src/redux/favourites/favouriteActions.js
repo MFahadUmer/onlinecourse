@@ -1,9 +1,9 @@
+import axios from 'axios';
 import {
   FETCH_FAVOURITE_COURSE_FAILURE,
   FETCH_FAVOURITE_COURSE_REQUEST,
   FETCH_FAVOURITE_COURSE_SUCCESS,
 } from './favouriteActionTypes';
-import axios from "axios";
 
 export const fetchFavouriteCourseRequest = () => ({
   type: FETCH_FAVOURITE_COURSE_REQUEST,
@@ -19,9 +19,9 @@ export const fetchFavouriteCoursesFailure = error => ({
   payload: error,
 });
 
-export const fetchFavouriteCourses = () => dispatch => {
+export const fetchFavouriteCourses = userId => dispatch => {
   dispatch(fetchFavouriteCourseRequest());
-  axios.get('http://localhost:3000/favourites/2')
+  axios.get(`http://localhost:3000/favourites/${userId}`)
     .then(response => {
       const courses = response.data;
       dispatch(fetchFavouriteCourseSuccess(courses));
