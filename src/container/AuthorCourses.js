@@ -21,7 +21,7 @@ const AuthorCourses = () => {
       />
     ));
   return (
-    <div>
+    <div className="courseContainerList">
       {authorCourses}
     </div>
   );
