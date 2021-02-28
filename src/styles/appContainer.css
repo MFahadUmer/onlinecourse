@@ -1,8 +1,64 @@
-.logContainer {
-  width: 100vw;
+.loginContainer {
   height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-body {
-  background-color: gray;
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputField {
+  margin: 10px 0;
+  width: 220px;
+  height: 35px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255);
+  border: 0.5px solid black;
+}
+
+.inputField:focus {
+  outline: none;
+  border-radius: 50px;
+  border: 2px #fa5943 solid;
+}
+
+.submitField {
+  margin-top: 10px;
+  width: 110px;
+  height: 35px;
+  border-radius: 50px;
+  background-color: #fa5943;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.signupLink {
+  background-color: #fa5943;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 35px;
+  position: absolute;
+  bottom: 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.background {
+  background-image: url("../images/signinBackground.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  backface-visibility: hidden;
 }
