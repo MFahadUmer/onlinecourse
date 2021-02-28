@@ -3,7 +3,7 @@ import {
   ADD_COURSE_TO_FAVOURITE,
   FETCH_FAVOURITE_COURSE_FAILURE,
   FETCH_FAVOURITE_COURSE_REQUEST,
-  FETCH_FAVOURITE_COURSE_SUCCESS,
+  FETCH_FAVOURITE_COURSE_SUCCESS, REMOVE_COURSE_FROM_FAVOURITE,
 } from './favouriteActionTypes';
 
 export const fetchFavouriteCourseRequest = () => ({
@@ -23,6 +23,11 @@ export const fetchFavouriteCoursesFailure = error => ({
 export const addCourseToFavourite = courseObj => ({
   type: ADD_COURSE_TO_FAVOURITE,
   payload: courseObj,
+});
+
+export const deleteFromFavouriteAction = userId => ({
+  type: REMOVE_COURSE_FROM_FAVOURITE,
+  payload: userId,
 });
 
 export const fetchFavouriteCourses = () => dispatch => {
@@ -47,5 +52,13 @@ export const addToFavourites = courseObj => dispatch => {
     .catch(error => {
       const errorMsg = error.message;
       dispatch(fetchFavouriteCoursesFailure(errorMsg));
+    });
+};
+
+export const deleteFromFavourite = favId => dispatch => {
+  axios.delete(`http://localhost:3000/favourites/${favId}`)
+    .then(response => {
+      const course = response.data;
+      dispatch(deleteFromFavouriteAction(course));
     });
 };

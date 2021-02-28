@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CourseDetails from '../component/CourseDetails';
-import { addToFavourites, fetchFavouriteCourses } from '../redux/favourites/favouriteActions';
+import { addToFavourites, deleteFromFavourite } from '../redux/favourites/favouriteActions';
 
 // eslint-disable-next-line react/prop-types
 const CourseDetailsContainer = ({ match }) => {
@@ -10,10 +10,18 @@ const CourseDetailsContainer = ({ match }) => {
     dispatch(addToFavourites(courseObj));
   };
   const favouriteCheck = useSelector(state => state.favourite.courses);
+  const deleteFavouriteHandler = courseObj => {
+    // eslint-disable-next-line no-unused-vars
+    const deleteFav = favouriteCheck.filter(course => course.user_id === courseObj.user_id
+      && course.course_id === courseObj.course_id).map(course => (
+      dispatch(deleteFromFavourite(course.id))
+    ));
+  };
   const userId = useSelector(state => state.user.user.user_id);
-  useEffect(() => {
-    dispatch(fetchFavouriteCourses(userId));
-  }, []);
+  const userFavouritesIds = [];
+  // eslint-disable-next-line no-unused-vars
+  const userFavourites = favouriteCheck.filter(course => course.user_id === userId)
+    .map(course => userFavouritesIds.push(course.course_id));
   // eslint-disable-next-line react/prop-types,no-unused-vars
   const courseId = parseInt(match.params.id, 10);
   const courseDetail = useSelector(state => state.course.courses);
@@ -30,8 +38,9 @@ const CourseDetailsContainer = ({ match }) => {
         image={course.image}
         price={course.price}
         date={course.date}
-        check={favouriteCheck.includes(course.course_id) ? 'Remove Favourite' : 'Add Favourite'}
+        check={userFavouritesIds.includes(course.course_id) ? 'Remove Favourite' : 'Add Favourite'}
         addFavouriteHandler={addFavouriteHandler}
+        deleteFavouriteHandler={deleteFavouriteHandler}
       />
     ));
   return (

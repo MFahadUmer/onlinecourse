@@ -3,13 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCourse } from '../redux/courses/coursesAction';
 import Courses from '../component/Courses';
 import UserNavbar from '../component/userNavbar';
+import { fetchFavouriteCourses } from '../redux/favourites/favouriteActions';
 
 // eslint-disable-next-line react/prop-types
-const CourseContainer = () => {
+const CourseContainer = ({ userId }) => {
   const course = useSelector(state => state.course);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCourse());
+    dispatch(fetchFavouriteCourses(userId));
   }, []);
   const coursesList = course.courses.map(courseData => (
     <Courses

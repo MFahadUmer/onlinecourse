@@ -2,7 +2,7 @@ import {
   ADD_COURSE_TO_FAVOURITE,
   FETCH_FAVOURITE_COURSE_FAILURE,
   FETCH_FAVOURITE_COURSE_REQUEST,
-  FETCH_FAVOURITE_COURSE_SUCCESS,
+  FETCH_FAVOURITE_COURSE_SUCCESS, REMOVE_COURSE_FROM_FAVOURITE,
 } from './favouriteActionTypes';
 
 const initialFavouriteState = {
@@ -35,6 +35,12 @@ const favouriteReducer = (state = initialFavouriteState, action) => {
       course = state.courses.concat(action.payload);
       return {
         ...state, course,
+      };
+    case REMOVE_COURSE_FROM_FAVOURITE:
+      console.log('yesssss');
+      return {
+        ...state,
+        courses: state.courses.filter(course => course.id !== action.payload),
       };
     default: return state;
   }
