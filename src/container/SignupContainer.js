@@ -44,17 +44,20 @@ const SignupContainer = () => {
   if (user.user.length === 0) {
     return (
       <div className="background signupContainer">
+        <div className="signupHeaderDiv">
+          <h2 className="signupHeader">Sign Up</h2>
+        </div>
         <div className="signupForm">
-          <input className="inputField" type="text" name="firstname" placeholder="First Name" onChange={e => handleChange(e)} />
-          <input className="inputField" type="text" name="lastname" placeholder="Last Name" onChange={e => handleChange(e)} />
-          <input className="inputField" type="text" name="username" placeholder="Username" onChange={e => handleChange(e)} />
-          <input className="inputField" type="email" name="email" placeholder="Email" onChange={e => handleChange(e)} />
-          <select className="inputField" name="usertype" defaultValue="user" onChange={e => handleChange(e)}>
+          <input className="inputFieldSignup" type="text" name="firstname" placeholder="First Name" onChange={e => handleChange(e)} />
+          <input className="inputFieldSignup" type="text" name="lastname" placeholder="Last Name" onChange={e => handleChange(e)} />
+          <input className="inputFieldSignup" type="text" name="username" placeholder="Username" onChange={e => handleChange(e)} />
+          <input className="inputFieldSignup" type="email" name="email" placeholder="Email" onChange={e => handleChange(e)} />
+          <select className="inputFieldSignup" name="usertype" defaultValue="user" onChange={e => handleChange(e)}>
             <option value="user">User</option>
             <option value="author">Author</option>
           </select>
-          <input className="inputField" type="password" name="password" placeholder="password" onChange={e => handleChange(e)} />
-          <input className="submitField" type="submit" value="signup" onClick={() => handleSubmit()} />
+          <input className="inputFieldSignup" type="password" name="password" placeholder="password" onChange={e => handleChange(e)} />
+          <input className="submitField" type="submit" value="SIGNUP" onClick={() => handleSubmit()} />
         </div>
         <div>
           <Link className="signinLink" to="/signin/">SIGNIN</Link>

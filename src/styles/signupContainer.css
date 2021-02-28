@@ -6,11 +6,27 @@
   align-items: center;
 }
 
-.signupForm {
-  margin-top: 15px;
+.signupHeaderDiv {
+  height: 20%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
+}
+
+.signupHeader {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  width: 100vw;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -27,4 +43,13 @@
   font-weight: bold;
   font-size: 16px;
   text-decoration: none;
+}
+
+.inputFieldSignup {
+  margin: 10px 0;
+  width: 220px;
+  height: 35px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 0.5px solid black;
 }
