@@ -1,19 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-// eslint-disable-next-line react/prop-types
 const Courses = ({
-  // eslint-disable-next-line react/prop-types
   uniqueKey,
-  // eslint-disable-next-line react/prop-types
   title,
-  // eslint-disable-next-line react/prop-types
   index,
-  // eslint-disable-next-line react/prop-types
   total,
-  // eslint-disable-next-line react/prop-types
   image,
-  // eslint-disable-next-line react/prop-types
   price,
 }) => (
   <div className="coursesContainer">
@@ -45,5 +39,23 @@ const Courses = ({
     </div>
   </div>
 );
+
+Courses.propTypes = {
+  title: PropTypes.string,
+  uniqueKey: PropTypes.number,
+  index: PropTypes.number,
+  total: PropTypes.number,
+  image: PropTypes.string,
+  price: PropTypes.string,
+};
+
+Courses.defaultProps = {
+  title: '',
+  uniqueKey: '',
+  index: '',
+  total: '',
+  image: '',
+  price: '',
+};
 
 export default Courses;

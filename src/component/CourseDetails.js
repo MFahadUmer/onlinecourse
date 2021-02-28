@@ -1,28 +1,18 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import UserNavbar from './userNavbar';
 
 const CourseDetails = ({
-  // eslint-disable-next-line react/prop-types
   title,
-  // eslint-disable-next-line no-unused-vars,react/prop-types
   uniqueKey,
-  // eslint-disable-next-line no-unused-vars,react/prop-types
   userid,
-  // eslint-disable-next-line react/prop-types
   details,
-  // eslint-disable-next-line react/prop-types
   requirements,
-  // eslint-disable-next-line react/prop-types
   difficulty,
-  // eslint-disable-next-line react/prop-types
   image,
-  // eslint-disable-next-line react/prop-types
   price,
-  // eslint-disable-next-line react/prop-types
   check,
-  // eslint-disable-next-line react/prop-types
   addFavouriteHandler,
-  // eslint-disable-next-line react/prop-types
   deleteFavouriteHandler,
 }) => {
   const [favourite, setFavourite] = useState(check);
@@ -95,6 +85,35 @@ const CourseDetails = ({
       </div>
     </>
   );
+};
+
+CourseDetails.propTypes = {
+  title: PropTypes.string,
+  uniqueKey: PropTypes.number,
+  userid: PropTypes.number,
+  details: PropTypes.string,
+  requirements: PropTypes.string,
+  difficulty: PropTypes.string,
+  image: PropTypes.string,
+  price: PropTypes.string,
+  check: PropTypes.string,
+  addFavouriteHandler: PropTypes.func,
+  deleteFavouriteHandler: PropTypes.func,
+
+};
+
+CourseDetails.defaultProps = {
+  title: '',
+  uniqueKey: '',
+  userid: '',
+  details: '',
+  requirements: '',
+  difficulty: '',
+  image: '',
+  price: '',
+  check: '',
+  addFavouriteHandler: '',
+  deleteFavouriteHandler: '',
 };
 
 export default CourseDetails;

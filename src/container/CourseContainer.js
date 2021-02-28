@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { fetchCourse } from '../redux/courses/coursesAction';
 import Courses from '../component/Courses';
 import UserNavbar from '../component/userNavbar';
 import { fetchFavouriteCourses } from '../redux/favourites/favouriteActions';
 
-// eslint-disable-next-line react/prop-types
 const CourseContainer = ({ userId }) => {
   const course = useSelector(state => state.course);
   const dispatch = useDispatch();
@@ -39,6 +39,10 @@ const CourseContainer = ({ userId }) => {
       </div>
     </>
   );
+};
+
+CourseContainer.propTypes = {
+  userId: PropTypes.number.isRequired,
 };
 
 export default CourseContainer;

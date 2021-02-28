@@ -6,9 +6,7 @@ import Courses from '../component/Courses';
 
 const AuthorCourses = () => {
   const allCourses = useSelector(state => state.course.courses);
-  // eslint-disable-next-line no-unused-vars
   const authorCourses = allCourses.filter(course => course.author === 2)
-    // eslint-disable-next-line no-unused-vars
     .map(courseData => (
       <Courses
         key={courseData.course_id}
