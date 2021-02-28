@@ -5,7 +5,9 @@ const UserNavbar = () => (
   <div className="userNavbar">
     <Link to="/"><span className="fas fa-bars" /></Link>
     <h2>Courses</h2>
-    <p><span className="fas fa-search" /></p>
+    <a href="http://localhost:3000">
+      <span className="fas fa-sign-out-alt" />
+    </a>
   </div>
 );
 
