@@ -25,12 +25,12 @@ const LoginContainer = () => {
 
   if (loggedUser.user.length === 0) {
     return (
-      <div className="loginContainer">
+      <div className="background loginContainer">
         <div className="loginForm">
-          <input type="text" placeholder="USERNAME" name="username" onChange={e => handleChange(e)} />
-          <input type="password" placeholder="PASSWORD" name="password" onChange={e => handleChange(e)} />
-          <input type="submit" value="LOGIN" onClick={() => handleSubmit()} />
-          <Link to="/signup/">SIGNUP</Link>
+          <input className="inputField" type="text" placeholder="USERNAME" name="username" onChange={e => handleChange(e)} />
+          <input className="inputField" type="password" placeholder="PASSWORD" name="password" onChange={e => handleChange(e)} />
+          <input className="submitField" type="submit" value="LOGIN" onClick={() => handleSubmit()} />
+          <Link className="signupLink" to="/signup/">SIGNUP</Link>
         </div>
       </div>
     );
@@ -40,7 +40,7 @@ const LoginContainer = () => {
     );
   }
   return (
-    <div>
+    <div className="background">
       <CourseContainer />
     </div>
   );
