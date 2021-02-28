@@ -37,7 +37,6 @@ const favouriteReducer = (state = initialFavouriteState, action) => {
         ...state, course,
       };
     case REMOVE_COURSE_FROM_FAVOURITE:
-      console.log('yesssss');
       return {
         ...state,
         courses: state.courses.filter(course => course.id !== action.payload),
