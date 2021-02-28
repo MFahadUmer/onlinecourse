@@ -6,9 +6,6 @@
   overflow-x: auto;
 }
 
-.courseContainerList::-webkit-scrollbar{
+.courseContainerList::-webkit-scrollbar {
   width: 0;
-}
-
-.courseReducer {
 }
