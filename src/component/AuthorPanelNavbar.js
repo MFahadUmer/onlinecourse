@@ -5,7 +5,7 @@ const AuthorPanelNavbar = () => (
   <div className="authorNavbar">
     <Link className="authorNavbarLink" to="/addCourse">Add Course</Link>
     <Link className="authorNavbarLink" to="/authorCourses">Author Courses</Link>
-    <Link className="authorNavbarLink" to="https://reactonlinecourse.herokuapp.com/">Logout</Link>
+    <a className="authorNavbarLink" href="http://localhost:3000">Logout</a>
   </div>
 );
 

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const UserNavbar = () => (
   <div className="userNavbar">
-    <Link to="/">|||</Link>
+    <Link to="/"><span className="fas fa-bars" /></Link>
     <h2>Courses</h2>
-    <p>search</p>
+    <p><span className="fas fa-search" /></p>
   </div>
 );
 
