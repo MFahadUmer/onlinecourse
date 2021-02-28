@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
 const Courses = ({
+  // eslint-disable-next-line react/prop-types
+  uniqueKey,
   // eslint-disable-next-line react/prop-types
   title,
   // eslint-disable-next-line react/prop-types
@@ -11,25 +14,49 @@ const Courses = ({
   // eslint-disable-next-line react/prop-types
   difficulty,
   // eslint-disable-next-line react/prop-types
-  author,
+  index,
   // eslint-disable-next-line react/prop-types
-  Uploaded,
+  total,
+  // eslint-disable-next-line react/prop-types
+  image,
+  // eslint-disable-next-line react/prop-types
+  price,
 }) => {
   console.log(title);
   console.log(details);
   console.log(requirements);
   console.log(difficulty);
-  console.log(author);
-  console.log(Uploaded);
+  console.log(index);
+  console.log(total);
+  console.log(image);
+  console.log(price);
+  console.log(uniqueKey);
   return (
     <div className="coursesContainer">
-      <div className="coursesDetails">
-        <img className="courseImage" src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_960_720.jpg" alt={title} />
-        <div className="courseDetails">
-          <div className="courseTitle">
-            <h3 className="title">{title}</h3>
-            <p className="price">$3000</p>
+      <div className="courseContainerCourse">
+        <img className="courseImage" src={image} alt={image} />
+        <div className="userCourseDetailsContainer">
+          <div className="userCourseDetailsDetails">
+            <h2 className="userCoursesTitle">
+              <Link className="courseTitleLink" to={`/couseDetails/${uniqueKey}`}>{title}</Link>
+            </h2>
+            <p className="userCoursesPrice">
+              {`${price} $`}
+            </p>
           </div>
+          <div className="userCourseDetailsDetails">
+            <div>
+              <span className="fas fa-star starColor" />
+              <span className="fas fa-star starColor" />
+              <span className="fas fa-star starColor" />
+              <span className="fas fa-star starColor" />
+              <span className="fas fa-star" />
+            </div>
+            <p> Per Month </p>
+          </div>
+        </div>
+        <div className="numbering">
+          {`${index} / ${total}`}
         </div>
       </div>
     </div>

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 const UserNavbar = () => {
   console.log('yes');
   return (
-    <div>
-      <Link to="/allCourses/">All Courses</Link>
-      <Link to="/favourites/">Favourites</Link>
-      <Link to="/logout">Logout</Link>
+    <div className="userNavbar">
+      <Link to="/">|||</Link>
+      <h2>Courses</h2>
+      <p>search</p>
     </div>
   );
 };

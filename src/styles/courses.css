@@ -1,0 +1,50 @@
+.coursesContainer {
+  min-width: 75%;
+  min-height: 400px;
+  padding-left: 5%;
+}
+
+.courseImage {
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+  height: 400px;
+}
+
+.color {
+  background-color: #fa5943;
+}
+
+.userCourseDetailsContainer {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.courseContainerCourse {
+  display: flex;
+  flex-direction: column;
+}
+
+.starColor {
+  color: #ffbe58;
+}
+
+.userCourseDetailsDetails {
+  display: flex;
+  padding: 5px 0;
+  justify-content: space-between;
+}
+
+.courseTitleLink {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+}
+
+.numbering {
+  margin-top: 25px;
+  font-weight: bold;
+  text-align: center;
+}

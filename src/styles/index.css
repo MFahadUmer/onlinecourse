@@ -2,3 +2,9 @@
 @import "appContainer.css";
 @import "signupContainer.css";
 @import "courseContainer.css";
+@import "userNavbar.css";
+@import "courses.css";
+
+body {
+  background-color: #f7f5fa;
+}

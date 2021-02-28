@@ -1,12 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { fetchCourse } from '../redux/courses/coursesAction';
-import UserNavbar from '../component/userNavbar';
-import FavouriteContainer from './FavouriteContainer';
-import AllCoursesContainer from './AllCoursesContainer';
-import LogoutContainer from './LogoutContainer';
 import Courses from '../component/Courses';
+import UserNavbar from '../component/userNavbar';
 
 const CourseContainer = () => {
   const course = useSelector(state => state.course);
@@ -15,29 +11,31 @@ const CourseContainer = () => {
   useEffect(() => {
     dispatch(fetchCourse());
   }, []);
-  const coursesList = course.courses.map(course => (
+  const coursesList = course.courses.map(courseData => (
     <Courses
-      key={course.title}
-      title={course.title}
-      details={course.details}
-      requirements={course.requirements}
-      difficulty={course.difficulty}
-      author={course.author}
-      Uploaded={course.date}
+      key={courseData.title}
+      uniqueKey={courseData.id}
+      title={courseData.title}
+      details={courseData.details}
+      requirements={courseData.requirements}
+      difficulty={courseData.difficulty}
+      image={courseData.image}
+      price={courseData.price}
+      author={courseData.author}
+      Uploaded={courseData.date}
+      index={course.courses.indexOf(courseData) + 1}
+      total={course.courses.length}
     />
   ));
-  console.log(coursesList);
   return (
-    <div>
-      <BrowserRouter>
-        <UserNavbar />
-        <Switch>
-          <Route path="/favourites/" component={FavouriteContainer} />
-          <Route default path="/allCourses/" component={AllCoursesContainer} />
-          <Route path="/logout" component={LogoutContainer} />
-        </Switch>
-      </BrowserRouter>
-    </div>
+    <>
+      <UserNavbar />
+      <div className="courseReducer">
+        <div className="courseContainerList">
+          {coursesList}
+        </div>
+      </div>
+    </>
   );
 };
 
