@@ -38,7 +38,6 @@ const AddsCourse = () => {
       course_image: image,
       course_price: price,
     };
-    console.log(newCourse);
     dispatch(addCourse(newCourse));
   };
   return (

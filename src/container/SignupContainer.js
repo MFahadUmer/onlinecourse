@@ -6,7 +6,6 @@ import AppContainer from './AppContainer';
 
 const SignupContainer = () => {
   const user = useSelector(state => state.user);
-  console.log(user);
   const dispatch = useDispatch();
   const [firstname, setfirstname] = useState('');
   const [lastname, setlastname] = useState('');

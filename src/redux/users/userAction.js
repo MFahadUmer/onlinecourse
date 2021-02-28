@@ -26,8 +26,5 @@ export const userRegistration = userObj => dispatch => {
     .then(response => {
       const user = response.data;
       dispatch(userRegistrationAction(user));
-    })
-    .catch(errors => {
-      console.log(errors);
     });
 };

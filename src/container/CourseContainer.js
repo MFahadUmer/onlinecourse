@@ -6,7 +6,6 @@ import UserNavbar from '../component/userNavbar';
 
 const CourseContainer = () => {
   const course = useSelector(state => state.course);
-  console.log(course);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCourse());
@@ -14,7 +13,7 @@ const CourseContainer = () => {
   const coursesList = course.courses.map(courseData => (
     <Courses
       key={courseData.title}
-      uniqueKey={courseData.id}
+      uniqueKey={courseData.course_id}
       title={courseData.title}
       details={courseData.details}
       requirements={courseData.requirements}
