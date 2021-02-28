@@ -4,6 +4,7 @@
 @import "courseContainer.css";
 @import "userNavbar.css";
 @import "courses.css";
+@import "singleCourseDetails.css";
 
 body {
   background-color: #f7f5fa;

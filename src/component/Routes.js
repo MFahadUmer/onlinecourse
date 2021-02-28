@@ -14,7 +14,7 @@ const Routes = () => (
       <Route exact path="/signin" component={AppContainer} />
       <Route exact path="/signup" component={SignupContainer} />
       <Route exact path="/addCourse" component={AddsCourse} />
-      <Route exact path="/couseDetailscouseDetails/:id" component={CourseDetailsContainer} />
+      <Route exact path="/couseDetails/:id" component={CourseDetailsContainer} />
       <Route exact path="/authorCourses" component={AuthorCourses} />
       <Route exact path="/logout" component={LogoutContainer} />
     </Switch>

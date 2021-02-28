@@ -46,7 +46,7 @@ const AppContainer = () => {
     );
   }
   return (
-    <CourseContainer />
+    <CourseContainer userId={loggedUser.user.user_id} />
   );
 };
 

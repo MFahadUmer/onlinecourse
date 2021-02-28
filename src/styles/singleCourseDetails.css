@@ -1,0 +1,90 @@
+.singleCourseDetailsContainer {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+}
+
+.singleCourseDetailsImage {
+  width: 100%;
+  height: 100%;
+}
+
+.authorname {
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.singleCourseDetailsImageDetails {
+  position: relative;
+  bottom: 93px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.singleCourseDetailsAuthor {
+  display: flex;
+  align-items: center;
+}
+
+.singleCourseDetailsAuthorImage {
+  margin-right: 10px;
+}
+
+.addToFavourites {
+  width: 100%;
+  padding: 15px 0;
+  background-color: #fc6244;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+}
+
+.singleCourseDetails {
+  padding: 15px;
+}
+
+.authorImage {
+  width: 75px;
+  height: 75px;
+  border-radius: 50px;
+  background-color: black;
+}
+
+.singleCoursePrice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+}
+
+.addToFavouritesLink {
+  background: none;
+  border: none;
+}
+
+.singleCoursePrice > p {
+  margin-bottom: 5px;
+}
+
+.courseDetailsParagraph {
+  overflow-y: auto;
+  color: gray;
+  margin-bottom: 5px;
+}
+
+.aboutThisCourse {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.addToFavouritesLink {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}

@@ -1,4 +1,5 @@
 import {
+  ADD_COURSE_TO_FAVOURITE,
   FETCH_FAVOURITE_COURSE_FAILURE,
   FETCH_FAVOURITE_COURSE_REQUEST,
   FETCH_FAVOURITE_COURSE_SUCCESS,
@@ -9,6 +10,8 @@ const initialFavouriteState = {
   courses: [],
   error: '',
 };
+
+let course = '';
 
 const favouriteReducer = (state = initialFavouriteState, action) => {
   switch (action.type) {
@@ -28,6 +31,11 @@ const favouriteReducer = (state = initialFavouriteState, action) => {
       courses: '',
       error: action.payload,
     };
+    case ADD_COURSE_TO_FAVOURITE:
+      course = state.courses.concat(action.payload);
+      return {
+        ...state, course,
+      };
     default: return state;
   }
 };

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {
+  ADD_COURSE_TO_FAVOURITE,
   FETCH_FAVOURITE_COURSE_FAILURE,
   FETCH_FAVOURITE_COURSE_REQUEST,
   FETCH_FAVOURITE_COURSE_SUCCESS,
@@ -19,12 +20,29 @@ export const fetchFavouriteCoursesFailure = error => ({
   payload: error,
 });
 
-export const fetchFavouriteCourses = userId => dispatch => {
+export const addCourseToFavourite = courseObj => ({
+  type: ADD_COURSE_TO_FAVOURITE,
+  payload: courseObj,
+});
+
+export const fetchFavouriteCourses = () => dispatch => {
   dispatch(fetchFavouriteCourseRequest());
-  axios.get(`http://localhost:3000/favourites/${userId}`)
+  axios.get('http://localhost:3000/favourites/')
     .then(response => {
       const courses = response.data;
       dispatch(fetchFavouriteCourseSuccess(courses));
+    })
+    .catch(error => {
+      const errorMsg = error.message;
+      dispatch(fetchFavouriteCoursesFailure(errorMsg));
+    });
+};
+
+export const addToFavourites = courseObj => dispatch => {
+  axios.post('http://localhost:3000/favourites/', courseObj)
+    .then(response => {
+      const course = response.data;
+      dispatch(addCourseToFavourite(course));
     })
     .catch(error => {
       const errorMsg = error.message;

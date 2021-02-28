@@ -4,6 +4,7 @@ import { fetchCourse } from '../redux/courses/coursesAction';
 import Courses from '../component/Courses';
 import UserNavbar from '../component/userNavbar';
 
+// eslint-disable-next-line react/prop-types
 const CourseContainer = () => {
   const course = useSelector(state => state.course);
   const dispatch = useDispatch();
