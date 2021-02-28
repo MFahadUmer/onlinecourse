@@ -27,6 +27,12 @@ const AppContainer = () => {
     return (
       <div className="background loginContainer">
         <div className="loginForm">
+          <div className="signinHeaderDiv">
+            <h2 className="signinHeader">Sign In</h2>
+          </div>
+          <div className="paragraphDiv">
+            <p className="paragraph">Hello there! Sign in and start managing your system</p>
+          </div>
           <input className="inputField" type="text" placeholder="USERNAME" name="username" onChange={e => handleChange(e)} />
           <input className="inputField" type="password" placeholder="PASSWORD" name="password" onChange={e => handleChange(e)} />
           <input className="submitField" type="submit" value="LOGIN" onClick={() => handleSubmit()} />

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { userRegistration } from '../redux/users/userAction';
-import LoginContainer from './LoginContainer';
+import AppContainer from './AppContainer';
 
 const SignupContainer = () => {
   const user = useSelector(state => state.user);
@@ -64,7 +64,7 @@ const SignupContainer = () => {
   }
 
   return (
-    <LoginContainer />
+    <AppContainer />
   );
 };
 
