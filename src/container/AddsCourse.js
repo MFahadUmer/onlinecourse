@@ -41,18 +41,18 @@ const AddsCourse = () => {
     dispatch(addCourse(newCourse));
   };
   return (
-    <div>
-      <input type="text" placeholder="Course Title" name="title" onChange={e => handleChange(e)} />
-      <input type="text" placeholder="Course Details" name="details" onChange={e => handleChange(e)} />
-      <input type="text" placeholder="Requirements for this course" name="requirements" onChange={e => handleChange(e)} />
-      <select name="difficulty" defaultValue="Beginners" onChange={e => handleChange(e)}>
+    <div className="addCourseContainer">
+      <input className="inputField" type="text" placeholder="Course Title" name="title" onChange={e => handleChange(e)} />
+      <input className="inputField" type="text" placeholder="Course Details" name="details" onChange={e => handleChange(e)} />
+      <input className="inputField" type="text" placeholder="Requirements for this course" name="requirements" onChange={e => handleChange(e)} />
+      <select className="inputField" name="difficulty" defaultValue="Beginners" onChange={e => handleChange(e)}>
         <option value="Beginners">Beginners</option>
         <option value="Intermediate">Intermediate</option>
         <option value="Advanced">Advanced</option>
       </select>
-      <input type="text" placeholder="Paste Course Image Link" name="image" onChange={e => handleChange(e)} />
-      <input type="text" placeholder="Price of this course" name="price" onChange={e => handleChange(e)} />
-      <input type="submit" value="SAVE" onClick={() => handleClick()} />
+      <input className="inputField" type="text" placeholder="Paste Course Image Link" name="image" onChange={e => handleChange(e)} />
+      <input className="inputField" type="text" placeholder="Price of this course" name="price" onChange={e => handleChange(e)} />
+      <input className="submitField" type="submit" value="SAVE" onClick={() => handleClick()} />
     </div>
   );
 };
