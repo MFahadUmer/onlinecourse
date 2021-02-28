@@ -12,7 +12,7 @@ export const userLoginAction = userDetails => ({
 });
 
 export const userLogin = userObj => dispatch => {
-  axios.post('http://localhost:3000/login', userObj)
+  axios.post('https://desolate-cove-81044.herokuapp.com/login', userObj)
     .then(response => {
       if (response.status === 200) {
         const userDetails = response.data;
@@ -22,7 +22,7 @@ export const userLogin = userObj => dispatch => {
 };
 
 export const userRegistration = userObj => dispatch => {
-  axios.post('http://localhost:3000/users', userObj)
+  axios.post('https://desolate-cove-81044.herokuapp.com/users', userObj)
     .then(response => {
       const user = response.data;
       dispatch(userRegistrationAction(user));
