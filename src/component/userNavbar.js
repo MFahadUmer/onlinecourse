@@ -7,7 +7,7 @@ const UserNavbar = () => (
       <span className="fas fa-arrow-circle-left" />
     </Link>
     Courses
-    <a href="http://localhost:3001">
+    <a href="https://reactonlinecourse.herokuapp.com/">
       <span className="fas fa-sign-out-alt" />
     </a>
   </div>
