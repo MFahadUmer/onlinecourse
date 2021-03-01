@@ -6,7 +6,7 @@ const UserNavbar = () => (
     <Link to="/">
       <span className="fas fa-arrow-circle-left" />
     </Link>
-    <Link to="/favourites">Favourites</Link>
+    Courses
     <a href="http://localhost:3001">
       <span className="fas fa-sign-out-alt" />
     </a>

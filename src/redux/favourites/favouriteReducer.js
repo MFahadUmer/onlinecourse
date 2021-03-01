@@ -34,12 +34,14 @@ const favouriteReducer = (state = initialFavouriteState, action) => {
     case ADD_COURSE_TO_FAVOURITE:
       course = state.courses.concat(action.payload);
       return {
-        ...state, course,
+        ...state,
+        courses: course,
       };
     case REMOVE_COURSE_FROM_FAVOURITE:
+      course = state.courses.filter(course => course.course_id !== action.payload);
       return {
         ...state,
-        courses: state.courses.filter(course => course.id !== action.payload),
+        courses: course,
       };
     default: return state;
   }

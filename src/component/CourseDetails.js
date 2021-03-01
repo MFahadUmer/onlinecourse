@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const CourseDetails = ({
@@ -8,8 +8,19 @@ const CourseDetails = ({
   difficulty,
   image,
   price,
+  check,
+  handleAddToFavourite,
+  handleRemoveFromFavourite,
 }) => {
-  const eventHandler = () => {
+  const [favourite, setFavourite] = useState(check);
+  const eventHandler = e => {
+    if (e.target.name === 'Add To Favourites') {
+      handleAddToFavourite();
+      setFavourite('Remove From Favourites');
+    } else {
+      handleRemoveFromFavourite();
+      setFavourite('Add To Favourites');
+    }
   };
   return (
     <>
@@ -54,11 +65,12 @@ const CourseDetails = ({
         </div>
         <div className="addToFavourites">
           <button
+            name={favourite}
             className="addToFavouritesLink"
             type="submit"
             onClick={e => eventHandler(e)}
           >
-            Add To Favourite
+            {favourite}
           </button>
         </div>
       </div>
@@ -68,20 +80,26 @@ const CourseDetails = ({
 
 CourseDetails.propTypes = {
   title: PropTypes.string,
+  check: PropTypes.string,
   details: PropTypes.string,
   requirements: PropTypes.string,
   difficulty: PropTypes.string,
   image: PropTypes.string,
   price: PropTypes.string,
+  handleAddToFavourite: PropTypes.func,
+  handleRemoveFromFavourite: PropTypes.func,
 };
 
 CourseDetails.defaultProps = {
   title: '',
+  check: '',
   details: '',
   requirements: '',
   difficulty: '',
   image: '',
   price: '',
+  handleAddToFavourite: '',
+  handleRemoveFromFavourite: '',
 };
 
 export default CourseDetails;

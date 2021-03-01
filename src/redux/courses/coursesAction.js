@@ -26,7 +26,7 @@ const addCourseAction = course => ({
 });
 
 export const addCourse = courseObj => dispatch => {
-  axios.post('http://localhost:3000/courses/', courseObj)
+  axios.post('https://desolate-cove-81044.herokuapp.com/courses/', courseObj)
     .then(response => {
       const course = response.data;
       dispatch(addCourseAction(course));
@@ -39,7 +39,7 @@ export const addCourse = courseObj => dispatch => {
 
 export const fetchCourse = () => dispatch => {
   dispatch(fetchCourseRequest());
-  axios.get('http://localhost:3000/courses')
+  axios.get('https://desolate-cove-81044.herokuapp.com/courses')
     .then(response => {
       const courses = response.data;
       dispatch(fetchCourseSuccess(courses));

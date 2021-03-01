@@ -20,7 +20,7 @@ export const fetchAuthorCoursesFailure = error => ({
 
 export const fetchAuthorCourses = userId => dispatch => {
   dispatch(fetchAuthorCoursesRequest());
-  axios.post(`http://localhost:3000/authorCourses/${userId}`)
+  axios.post(`https://desolate-cove-81044.herokuapp.com/authorCourses/${userId}`)
     .then(response => {
       const courses = response.data;
       dispatch(fetchAuthorCoursesSuccess(courses));
