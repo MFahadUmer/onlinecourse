@@ -5,7 +5,7 @@ const AuthorPanelNavbar = () => (
   <div className="authorNavbar">
     <Link className="authorNavbarLink" to="/addCourse">Add Course</Link>
     <Link className="authorNavbarLink" to="/authorCourses">Author Courses</Link>
-    <a className="authorNavbarLink" href="http://localhost:3000">Logout</a>
+    <a className="authorNavbarLink" href="http://localhost:3001">Logout</a>
   </div>
 );
 

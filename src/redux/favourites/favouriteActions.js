@@ -32,7 +32,7 @@ export const deleteFromFavouriteAction = userId => ({
 
 export const fetchFavouriteCourses = () => dispatch => {
   dispatch(fetchFavouriteCourseRequest());
-  axios.get('https://desolate-cove-81044.herokuapp.com/favourites/')
+  axios.get('https://localhost:3000/favourites/')
     .then(response => {
       const courses = response.data;
       dispatch(fetchFavouriteCourseSuccess(courses));
@@ -44,7 +44,8 @@ export const fetchFavouriteCourses = () => dispatch => {
 };
 
 export const addToFavourites = courseObj => dispatch => {
-  axios.post('https://desolate-cove-81044.herokuapp.com/favourites/', courseObj)
+  console.log(courseObj);
+  axios.post('https://localhost:3000/favourites/', courseObj)
     .then(response => {
       const course = response.data;
       dispatch(addCourseToFavourite(course));
@@ -56,7 +57,8 @@ export const addToFavourites = courseObj => dispatch => {
 };
 
 export const deleteFromFavourite = favId => dispatch => {
-  axios.delete(`https://desolate-cove-81044.herokuapp.com/favourites/${favId}`)
+  console.log(`yesssss From Delete Favourite ${favId}`);
+  axios.delete(`https://localhost:3000/favourites/${favId}`)
     .then(response => {
       const course = response.data;
       dispatch(deleteFromFavouriteAction(course));

@@ -18,7 +18,6 @@ const AppContainer = () => {
       setpassword(e.target.value);
     }
   };
-
   const handleSubmit = () => {
     dispatch(userLogin({ username, password }));
   };
@@ -36,6 +35,7 @@ const AppContainer = () => {
           <input className="inputField" type="text" placeholder="USERNAME" name="username" onChange={e => handleChange(e)} />
           <input className="inputField" type="password" placeholder="PASSWORD" name="password" onChange={e => handleChange(e)} />
           <input className="submitField" type="submit" value="LOGIN" onClick={() => handleSubmit()} />
+          {loggedUser.error === '' ? '' : <p className="signinErrorMsg">Invalid Credentials</p>}
           <Link className="signupLink" to="/signup/">SIGNUP</Link>
         </div>
       </div>
@@ -46,7 +46,9 @@ const AppContainer = () => {
     );
   }
   return (
-    <CourseContainer userId={loggedUser.user.user_id} />
+    <div>
+      <CourseContainer userId={loggedUser.user.user_id} />
+    </div>
   );
 };
 

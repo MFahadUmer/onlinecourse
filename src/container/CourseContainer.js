@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
+import {
+  BrowserRouter, Switch, Route,
+} from 'react-router-dom';
 import { fetchCourse } from '../redux/courses/coursesAction';
 import Courses from '../component/Courses';
 import UserNavbar from '../component/userNavbar';
-import { fetchFavouriteCourses } from '../redux/favourites/favouriteActions';
+import FavouriteContainer from './FavouriteContainer';
+import CourseDetailsContainer from './CourseDetailsContainer';
 
-const CourseContainer = ({ userId }) => {
+const CourseContainer = () => {
   const course = useSelector(state => state.course);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCourse());
-    dispatch(fetchFavouriteCourses(userId));
   }, []);
   const coursesList = course.courses.map(courseData => (
     <Courses
@@ -31,18 +33,22 @@ const CourseContainer = ({ userId }) => {
   ));
   return (
     <>
-      <UserNavbar />
-      <div className="courseReducer">
-        <div className="courseContainerList">
-          {coursesList}
+      <BrowserRouter>
+        <UserNavbar />
+        <div className="courseReducer">
+          <div className="courseContainerList">
+            <Switch>
+              <Route path="/" exact>
+                {coursesList}
+              </Route>
+              <Route path="/favourites" component={FavouriteContainer} />
+              <Route path="/couseDetails/:id" component={CourseDetailsContainer} />
+            </Switch>
+          </div>
         </div>
-      </div>
+      </BrowserRouter>
     </>
   );
-};
-
-CourseContainer.propTypes = {
-  userId: PropTypes.number.isRequired,
 };
 
 export default CourseContainer;

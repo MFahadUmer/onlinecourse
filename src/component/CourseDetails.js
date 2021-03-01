@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import UserNavbar from './userNavbar';
 
 const CourseDetails = ({
   title,
@@ -33,7 +32,6 @@ const CourseDetails = ({
   };
   return (
     <>
-      <UserNavbar />
       <div>
         <div className="singleCourseDetailsContainer">
           <img className="singleCourseDetailsImage" src={image} alt={image} />

@@ -33,6 +33,7 @@ const favouriteReducer = (state = initialFavouriteState, action) => {
     };
     case ADD_COURSE_TO_FAVOURITE:
       course = state.courses.concat(action.payload);
+      console.log('yess from reducer');
       return {
         ...state, course,
       };

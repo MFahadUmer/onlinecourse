@@ -1,2 +1,5 @@
 export const USER_SIGNUP = 'USER_SIGNUP';
 export const USER_SIGNIN = 'USER_SIGNIN';
+export const USER_FAILURE = 'USER_FAILURE';
+export const API_RESPONSE_STATUS = 'API_RESPONSE_STATUS';
+export const USER_LOG_STATUS = 'USER_LOG_STATUS';

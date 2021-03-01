@@ -57,6 +57,7 @@ const SignupContainer = () => {
           </select>
           <input className="inputFieldSignup" type="password" name="password" placeholder="password" onChange={e => handleChange(e)} />
           <input className="submitField" type="submit" value="SIGNUP" onClick={() => handleSubmit()} />
+          {user.error === '' ? '' : <p className="signinErrorMsg">Incomplete Details</p>}
         </div>
         <div>
           <Link className="signinLink" to="/signin/">SIGNIN</Link>

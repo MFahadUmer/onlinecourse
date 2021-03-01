@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchFavouriteCourses } from '../redux/favourites/favouriteActions';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 const FavouriteContainer = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchFavouriteCourses(2));
-  }, []);
+  const courses = useSelector(state => state.favourite);
+  console.log(courses);
   return (
     <div>
       Hey World
