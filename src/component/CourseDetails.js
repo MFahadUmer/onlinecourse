@@ -1,34 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const CourseDetails = ({
   title,
-  uniqueKey,
-  userid,
   details,
   requirements,
   difficulty,
   image,
   price,
-  check,
-  addFavouriteHandler,
-  deleteFavouriteHandler,
 }) => {
-  const [favourite, setFavourite] = useState(check);
   const eventHandler = () => {
-    if (favourite === 'Add Favourite') {
-      setFavourite('Remove Favourite');
-      addFavouriteHandler({
-        user_id: userid,
-        course_id: uniqueKey,
-      });
-    } else {
-      setFavourite('Add Favourite');
-      deleteFavouriteHandler({
-        user_id: userid,
-        course_id: uniqueKey,
-      });
-    }
   };
   return (
     <>
@@ -77,7 +58,7 @@ const CourseDetails = ({
             type="submit"
             onClick={e => eventHandler(e)}
           >
-            {favourite}
+            Add To Favourite
           </button>
         </div>
       </div>
@@ -87,31 +68,20 @@ const CourseDetails = ({
 
 CourseDetails.propTypes = {
   title: PropTypes.string,
-  uniqueKey: PropTypes.number,
-  userid: PropTypes.number,
   details: PropTypes.string,
   requirements: PropTypes.string,
   difficulty: PropTypes.string,
   image: PropTypes.string,
   price: PropTypes.string,
-  check: PropTypes.string,
-  addFavouriteHandler: PropTypes.func,
-  deleteFavouriteHandler: PropTypes.func,
-
 };
 
 CourseDetails.defaultProps = {
   title: '',
-  uniqueKey: '',
-  userid: '',
   details: '',
   requirements: '',
   difficulty: '',
   image: '',
   price: '',
-  check: '',
-  addFavouriteHandler: '',
-  deleteFavouriteHandler: '',
 };
 
 export default CourseDetails;

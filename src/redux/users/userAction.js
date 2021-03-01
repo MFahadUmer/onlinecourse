@@ -29,7 +29,7 @@ export const userLogStatus = value => ({
 });
 
 export const userLogin = userObj => dispatch => {
-  axios.post('https://desolate-cove-81044.herokuapp.com/login', userObj)
+  axios.post('http://localhost:3000/login', userObj)
     .then(response => {
       if (response.status === 200) {
         dispatch(apiResponseStatus(response.status));
@@ -45,7 +45,7 @@ export const userLogin = userObj => dispatch => {
 };
 
 export const userRegistration = userObj => dispatch => {
-  axios.post('https://desolate-cove-81044.herokuapp.com/users', userObj)
+  axios.post('http://localhost:3000/users/', userObj)
     .then(response => {
       const user = response.data;
       dispatch(userRegistrationAction(user));

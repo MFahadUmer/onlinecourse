@@ -44,7 +44,6 @@ export const fetchFavouriteCourses = () => dispatch => {
 };
 
 export const addToFavourites = courseObj => dispatch => {
-  console.log(courseObj);
   axios.post('https://localhost:3000/favourites/', courseObj)
     .then(response => {
       const course = response.data;
@@ -57,7 +56,6 @@ export const addToFavourites = courseObj => dispatch => {
 };
 
 export const deleteFromFavourite = favId => dispatch => {
-  console.log(`yesssss From Delete Favourite ${favId}`);
   axios.delete(`https://localhost:3000/favourites/${favId}`)
     .then(response => {
       const course = response.data;
