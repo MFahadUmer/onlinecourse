@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import {
   BrowserRouter,
   Switch,
@@ -8,22 +9,29 @@ import { useDispatch } from 'react-redux';
 import AuthorPanelNavbar from '../component/AuthorPanelNavbar';
 import AddsCourse from './AddsCourse';
 import AuthorCourses from './AuthorCourses';
-import { fetchCourse } from '../redux/courses/coursesAction';
+import { fetchAuthorCourses } from '../redux/authorCourses/authorCoursesAction';
 
-const AuthorPanelContainer = () => {
+const AuthorPanelContainer = ({ userId }) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchCourse());
+    dispatch(fetchAuthorCourses(userId));
   });
   return (
-    <BrowserRouter>
-      <AuthorPanelNavbar />
-      <Switch>
-        <Route path="/addCourse" component={AddsCourse} exact />
-        <Route path="/authorCourses" component={AuthorCourses} exact />
-      </Switch>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <AuthorPanelNavbar />
+        <Switch>
+          <Route exact path="/authorCourses" component={AuthorCourses} />
+          <Route exact path="/" component={AuthorCourses} />
+          <Route path="/addCourse" component={AddsCourse} exact />
+        </Switch>
+      </BrowserRouter>
+    </div>
   );
+};
+
+AuthorPanelContainer.propTypes = {
+  userId: PropTypes.number.isRequired,
 };
 
 export default AuthorPanelContainer;

@@ -42,7 +42,7 @@ const AppContainer = () => {
     );
   } if (loggedUser.user.user_type === 'author') {
     return (
-      <AuthorPanelContainer />
+      <AuthorPanelContainer userId={loggedUser.user.user_id} />
     );
   }
   return (
