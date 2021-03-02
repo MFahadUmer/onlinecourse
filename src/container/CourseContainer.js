@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   BrowserRouter, Switch, Route,
@@ -10,8 +9,11 @@ import UserNavbar from '../component/userNavbar';
 import CourseDetailsContainer from './CourseDetailsContainer';
 import { fetchFavouriteCourses } from '../redux/favourites/favouriteActions';
 import FavouritesContainer from './FavouritesContainer';
+import Loading from '../component/Loading';
 
-const CourseContainer = ({ userId }) => {
+const CourseContainer = () => {
+  const user = useSelector(state => state.user.user);
+  const userId = user.user_id;
   const course = useSelector(state => state.course);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -22,6 +24,7 @@ const CourseContainer = ({ userId }) => {
     <Courses
       key={courseData.course_id}
       uniqueKey={courseData.course_id}
+      userType={user.user_type}
       title={courseData.title}
       details={courseData.details}
       requirements={courseData.requirements}
@@ -38,6 +41,7 @@ const CourseContainer = ({ userId }) => {
     <>
       <BrowserRouter>
         <UserNavbar />
+        {course.loading ? <Loading loading={course.loading} color="blue" /> : '' }
         <div className="courseReducer">
           <div className="courseContainerList">
             <Switch>
@@ -52,10 +56,6 @@ const CourseContainer = ({ userId }) => {
       </BrowserRouter>
     </>
   );
-};
-
-CourseContainer.propTypes = {
-  userId: PropTypes.number.isRequired,
 };
 
 export default CourseContainer;

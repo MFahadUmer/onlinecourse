@@ -20,11 +20,13 @@ const authorCoursesReducer = (state = authorCoursesInitialState, action) => {
       ...state,
       courses: action.payload,
       status: 200,
+      loading: false,
     };
     case FETCH_FAVOURITE_COURSE_FAILURE: return {
       ...state,
       error: action.payload,
       status: 401,
+      loading: false,
     };
     default: return state;
   }

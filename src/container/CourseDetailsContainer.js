@@ -9,7 +9,8 @@ import {
 
 const CourseDetailsContainer = ({ match }) => {
   const dispatch = useDispatch();
-  const userId = useSelector(state => state.user.user.user_id);
+  const user = useSelector(state => state.user.user);
+  const userId = user.user_id;
   const favouriteCourses = useSelector(state => state.favourite.courses);
   const favouriteCoursesIds = favouriteCourses.map(courses => courses.course_id);
   const BookSearch = useSelector(state => state.course.courses);

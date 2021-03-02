@@ -8,6 +8,7 @@ import Loading from '../component/Loading';
 
 const AppContainer = () => {
   const loggedUser = useSelector(state => state.user);
+  const courses = useSelector(state => state.course.loading);
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [password, setpassword] = useState('');
@@ -53,7 +54,7 @@ const AppContainer = () => {
   }
   return (
     <div>
-      <CourseContainer userId={loggedUser.user.user_id} />
+      <CourseContainer userId={loggedUser.user.user_id} loading={courses} />
     </div>
   );
 };

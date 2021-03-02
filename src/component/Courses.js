@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line no-unused-vars
 import { Link } from 'react-router-dom';
 
 const Courses = ({
+// eslint-disable-next-line no-unused-vars
   uniqueKey,
   title,
   index,
   total,
   image,
   price,
+  userType,
 }) => (
   <div className="coursesContainer">
     <div className="courseContainerCourse">
@@ -16,7 +19,9 @@ const Courses = ({
       <div className="userCourseDetailsContainer">
         <div className="userCourseDetailsDetails">
           <h2 className="userCoursesTitle">
-            <Link className="courseTitleLink" to={`/couseDetails/${uniqueKey}`}>{title}</Link>
+            {userType === 'user'
+              ? (<Link className="courseTitleLink" to={`/couseDetails/${uniqueKey}`}>{title}</Link>)
+              : <p className="courseTitleLink">{title}</p>}
           </h2>
           <p className="userCoursesPrice">
             {`${price} $`}
@@ -47,11 +52,13 @@ Courses.propTypes = {
   total: PropTypes.number,
   image: PropTypes.string,
   price: PropTypes.string,
+  userType: PropTypes.string,
 };
 
 Courses.defaultProps = {
   title: '',
   uniqueKey: '',
+  userType: '',
   index: '',
   total: '',
   image: '',

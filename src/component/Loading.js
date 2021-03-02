@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 const Loading = ({ color, loading }) => (
-  <div className="loading">
+  <div className="loadingClass">
     <ClipLoader color={color} loading={loading} size={150} />
   </div>
 );
