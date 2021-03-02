@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addCourse } from '../redux/courses/coursesAction';
+// eslint-disable-next-line no-unused-vars
+import { addCourse, setMessage } from '../redux/courses/coursesAction';
 
 const AddsCourse = () => {
   const dispatch = useDispatch();
+  const changeHandler = () => {
+    dispatch(setMessage(''));
+    document.getElementById('addCourseForm').reset();
+  };
   const author = useSelector(state => state.user.user.user_id);
+  const courseStatusMsg = useSelector(state => state.course.message);
   const [title, setTitle] = useState('');
   const [details, setDetails] = useState('');
   const [requirements, setRequirements] = useState('');
@@ -20,7 +26,7 @@ const AddsCourse = () => {
     } else if (e.target.name === 'requirements') {
       setRequirements(e.target.value);
     } else if (e.target.name === 'difficulty') {
-      setDifficulty(e.target.value);
+      setDifficulty(e.target.value === '' ? 'Beginners' : e.target.value);
     } else if (e.target.name === 'image') {
       setImage(e.target.value);
     } else if (e.target.name === 'price') {
@@ -28,7 +34,8 @@ const AddsCourse = () => {
     }
   };
 
-  const handleClick = () => {
+  const handleClick = e => {
+    e.preventDefault();
     const newCourse = {
       course_title: title,
       course_details: details,
@@ -40,20 +47,31 @@ const AddsCourse = () => {
     };
     dispatch(addCourse(newCourse));
   };
+  if (courseStatusMsg === 'Course Added.') {
+    setTimeout(changeHandler, 2000);
+  }
   return (
-    <div className="addCourseContainer">
-      <input className="inputField" type="text" placeholder="Course Title" name="title" onChange={e => handleChange(e)} />
-      <input className="inputField" type="text" placeholder="Course Details" name="details" onChange={e => handleChange(e)} />
-      <input className="inputField" type="text" placeholder="Requirements for this course" name="requirements" onChange={e => handleChange(e)} />
-      <select className="inputField" name="difficulty" defaultValue="Beginners" onChange={e => handleChange(e)}>
-        <option value="Beginners">Beginners</option>
-        <option value="Intermediate">Intermediate</option>
-        <option value="Advanced">Advanced</option>
-      </select>
-      <input className="inputField" type="text" placeholder="Paste Course Image Link" name="image" onChange={e => handleChange(e)} />
-      <input className="inputField" type="text" placeholder="Price of this course" name="price" onChange={e => handleChange(e)} />
-      <input className="submitField" type="submit" value="SAVE" onClick={() => handleClick()} />
-    </div>
+    <>
+      <h2 className="allCoursesHeader">Add New Course</h2>
+      <form onSubmit={handleClick} id="addCourseForm">
+        <div className="addCourseContainer">
+          <input className="inputField" type="text" placeholder="Course Title" name="title" onChange={e => handleChange(e)} />
+          <input className="inputField" type="text" placeholder="Course Details" name="details" onChange={e => handleChange(e)} />
+          <input className="inputField" type="text" placeholder="Requirements for this course" name="requirements" onChange={e => handleChange(e)} />
+          <select className="inputField" name="difficulty" defaultValue="Beginners" onChange={e => handleChange(e)}>
+            <option value="Beginners">Beginners</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+          <input className="inputField" type="text" placeholder="Paste Course Image Link" name="image" onChange={e => handleChange(e)} />
+          <input className="inputField" type="text" placeholder="Price of this course" name="price" onChange={e => handleChange(e)} />
+          <input className="submitField" type="submit" value="SAVE" />
+        </div>
+      </form>
+      {courseStatusMsg === 'Course Added.'
+        ? <p className="courseAdded">Course Added.</p>
+        : ''}
+    </>
   );
 };
 

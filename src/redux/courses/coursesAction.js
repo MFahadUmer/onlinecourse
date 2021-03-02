@@ -4,6 +4,7 @@ import {
   FETCH_COURSE_FAILURE,
   FETCH_COURSE_REQUEST,
   FETCH_COURSE_SUCCESS,
+  SET_MESSAGE,
 } from './coursesActionTypes';
 import API_LINK_ADDRESS from '../apiAddress';
 
@@ -21,16 +22,23 @@ export const fetchCourseFailure = error => ({
   payload: error,
 });
 
-const addCourseAction = course => ({
+export const addCourseAction = course => ({
   type: ADD_COURSE,
   payload: course,
 });
 
+export const setMessage = msg => ({
+  type: SET_MESSAGE,
+  payload: msg,
+});
+
 export const addCourse = courseObj => dispatch => {
+  dispatch(fetchCourseRequest());
   axios.post(`${API_LINK_ADDRESS}/courses/`, courseObj)
     .then(response => {
       const course = response.data;
       dispatch(addCourseAction(course));
+      dispatch(setMessage('Course Added.'));
     })
     .catch(error => {
       const errorMsg = error.message;

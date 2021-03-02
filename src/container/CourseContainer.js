@@ -20,7 +20,7 @@ const CourseContainer = ({ userId }) => {
   }, []);
   const coursesList = course.courses.map(courseData => (
     <Courses
-      key={courseData.title}
+      key={courseData.course_id}
       uniqueKey={courseData.course_id}
       title={courseData.title}
       details={courseData.details}

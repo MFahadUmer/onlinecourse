@@ -2,13 +2,14 @@ import {
   ADD_COURSE,
   FETCH_COURSE_FAILURE,
   FETCH_COURSE_REQUEST,
-  FETCH_COURSE_SUCCESS,
+  FETCH_COURSE_SUCCESS, SET_MESSAGE,
 } from './coursesActionTypes';
 
 const initialState = {
   loading: false,
   courses: [],
   error: '',
+  message: '',
 };
 
 let courses = '';
@@ -33,8 +34,15 @@ const courseReducer = (state = initialState, action) => {
 
     case ADD_COURSE:
       courses = state.courses.concat(action.payload);
-      return { ...state, courses };
-
+      return {
+        ...state,
+        loading: false,
+        courses,
+      };
+    case SET_MESSAGE: return {
+      ...state,
+      message: action.payload,
+    };
     default: return state;
   }
 };

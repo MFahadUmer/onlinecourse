@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userLogin } from '../redux/users/userAction';
 import AuthorPanelContainer from './AuthorPanelContainer';
 import CourseContainer from './CourseContainer';
+import Loading from '../component/Loading';
 
 const AppContainer = () => {
   const loggedUser = useSelector(state => state.user);
@@ -11,6 +12,11 @@ const AppContainer = () => {
   const [username, setUsername] = useState('');
   const [password, setpassword] = useState('');
 
+  if (loggedUser.loading) {
+    return (
+      <Loading loading={loggedUser.loading} color="black" />
+    );
+  }
   const handleChange = e => {
     if (e.target.name === 'username') {
       setUsername(e.target.value);
