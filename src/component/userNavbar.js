@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 const UserNavbar = () => (
   <div className="userNavbar">
     <Link to="/">
-      <span className="fas fa-arrow-circle-left" />
+      <span className="fas fa-arrow-circle-left userNavbarLink" />
     </Link>
-    Courses
-    <a href="https://reactonlinecourse.herokuapp.com/">
-      <span className="fas fa-sign-out-alt" />
+    <Link className="userNavbarLink" to="/favourites">Favourites</Link>
+    <a className="userNavbarLink" href="http://localhost:3001/">
+      <span className="fas fa-sign-out-alt userNavbarLink" />
     </a>
   </div>
 );

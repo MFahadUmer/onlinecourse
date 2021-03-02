@@ -7,11 +7,11 @@
 
 .allCoursesHeader {
   text-align: center;
-  padding: 5px 0 3px 0;
+  padding: 5px 0;
   background-color: white;
   margin-bottom: 10px;
   color: #fa5943;
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 .courseContainerList::-webkit-scrollbar {

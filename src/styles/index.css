@@ -7,6 +7,7 @@
 @import "singleCourseDetails.css";
 @import "addCourse.css";
 @import "authorNavbar.css";
+@import "favouritesContainer.css";
 
 body {
   background-color: #f7f5fa;

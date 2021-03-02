@@ -9,6 +9,7 @@ import Courses from '../component/Courses';
 import UserNavbar from '../component/userNavbar';
 import CourseDetailsContainer from './CourseDetailsContainer';
 import { fetchFavouriteCourses } from '../redux/favourites/favouriteActions';
+import FavouritesContainer from './FavouritesContainer';
 
 const CourseContainer = ({ userId }) => {
   const course = useSelector(state => state.course);
@@ -44,6 +45,7 @@ const CourseContainer = ({ userId }) => {
                 {coursesList}
               </Route>
               <Route path="/couseDetails/:id" component={CourseDetailsContainer} />
+              <Route path="/favourites" component={FavouritesContainer} />
             </Switch>
           </div>
         </div>
