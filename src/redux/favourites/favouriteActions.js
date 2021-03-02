@@ -5,6 +5,7 @@ import {
   FETCH_FAVOURITE_COURSE_REQUEST,
   FETCH_FAVOURITE_COURSE_SUCCESS, REMOVE_COURSE_FROM_FAVOURITE,
 } from './favouriteActionTypes';
+import API_LINK_ADDRESS from '../apiAddress';
 
 export const fetchFavouriteCourseRequest = () => ({
   type: FETCH_FAVOURITE_COURSE_REQUEST,
@@ -32,7 +33,7 @@ export const deleteFromFavouriteAction = userId => ({
 
 export const fetchFavouriteCourses = userId => dispatch => {
   dispatch(fetchFavouriteCourseRequest());
-  axios.post(`https://desolate-cove-81044.herokuapp.com/userFavourite/${userId}`)
+  axios.post(`${API_LINK_ADDRESS}/userFavourite/${userId}`)
     .then(response => {
       const courses = response.data;
       dispatch(fetchFavouriteCourseSuccess(courses));
@@ -45,10 +46,10 @@ export const fetchFavouriteCourses = userId => dispatch => {
 
 export const addToFavourites = (courseObj, course) => dispatch => {
   dispatch(addCourseToFavourite(course));
-  axios.post('https://desolate-cove-81044.herokuapp.com/favourites/', courseObj);
+  axios.post(`${API_LINK_ADDRESS}/favourites/`, courseObj);
 };
 
 export const deleteFromFavourite = favObj => dispatch => {
   dispatch(deleteFromFavouriteAction(favObj.course_id));
-  axios.post('https://desolate-cove-81044.herokuapp.com/deletefavourite/', favObj);
+  axios.post(`${API_LINK_ADDRESS}/deletefavourite/`, favObj);
 };

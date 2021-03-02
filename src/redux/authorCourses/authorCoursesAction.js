@@ -3,6 +3,7 @@ import {
   FETCH_FAVOURITE_COURSE_FAILURE,
   FETCH_FAVOURITE_COURSE_REQUEST, FETCH_FAVOURITE_COURSE_SUCCESS,
 } from '../favourites/favouriteActionTypes';
+import API_LINK_ADDRESS from '../apiAddress';
 
 export const fetchAuthorCoursesRequest = () => ({
   type: FETCH_FAVOURITE_COURSE_REQUEST,
@@ -20,7 +21,7 @@ export const fetchAuthorCoursesFailure = error => ({
 
 export const fetchAuthorCourses = userId => dispatch => {
   dispatch(fetchAuthorCoursesRequest());
-  axios.post(`https://desolate-cove-81044.herokuapp.com/authorCourses/${userId}`)
+  axios.post(`${API_LINK_ADDRESS}/authorCourses/${userId}`)
     .then(response => {
       const courses = response.data;
       dispatch(fetchAuthorCoursesSuccess(courses));

@@ -2,6 +2,7 @@ import axios from 'axios';
 import {
   API_RESPONSE_STATUS, USER_FAILURE, USER_LOG_STATUS, USER_SIGNIN, USER_SIGNUP,
 } from './userActionTypes';
+import API_LINK_ADDRESS from '../apiAddress';
 
 export const userRegistrationAction = userDetails => ({
   type: USER_SIGNUP,
@@ -29,7 +30,7 @@ export const userLogStatus = value => ({
 });
 
 export const userLogin = userObj => dispatch => {
-  axios.post('https://desolate-cove-81044.herokuapp.com/login', userObj)
+  axios.post(`${API_LINK_ADDRESS}/login`, userObj)
     .then(response => {
       if (response.status === 200) {
         dispatch(apiResponseStatus(response.status));
@@ -45,7 +46,7 @@ export const userLogin = userObj => dispatch => {
 };
 
 export const userRegistration = userObj => dispatch => {
-  axios.post('https://desolate-cove-81044.herokuapp.com/users/', userObj)
+  axios.post(`${API_LINK_ADDRESS}/users/`, userObj)
     .then(response => {
       const user = response.data;
       dispatch(userRegistrationAction(user));

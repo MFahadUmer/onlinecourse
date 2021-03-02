@@ -17,9 +17,12 @@ const AuthorCourses = () => {
     />
   ));
   return (
-    <div className="courseContainerList">
-      {authorCourses}
-    </div>
+    <>
+      <h2 className="allCoursesHeader">ALL COURSES ADDED BY YOU.</h2>
+      <div className="courseContainerList">
+        {authorCourses}
+      </div>
+    </>
   );
 };
 

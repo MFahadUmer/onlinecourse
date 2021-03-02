@@ -5,7 +5,7 @@
 }
 
 .courseImage {
-  border-radius: 5px 5px 0 0;
+  border-radius: 10px 10px 0 0;
   width: 100%;
   height: 400px;
 }
@@ -44,7 +44,11 @@
 }
 
 .numbering {
-  margin-top: 25px;
+  background-color: #fa5943;
+  color: white;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 0 0 10px 10px;
   font-weight: bold;
   text-align: center;
 }

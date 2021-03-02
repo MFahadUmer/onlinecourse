@@ -5,6 +5,7 @@ import {
   FETCH_COURSE_REQUEST,
   FETCH_COURSE_SUCCESS,
 } from './coursesActionTypes';
+import API_LINK_ADDRESS from '../apiAddress';
 
 export const fetchCourseRequest = () => ({
   type: FETCH_COURSE_REQUEST,
@@ -26,7 +27,7 @@ const addCourseAction = course => ({
 });
 
 export const addCourse = courseObj => dispatch => {
-  axios.post('https://desolate-cove-81044.herokuapp.com/courses/', courseObj)
+  axios.post(`${API_LINK_ADDRESS}/courses/`, courseObj)
     .then(response => {
       const course = response.data;
       dispatch(addCourseAction(course));
@@ -39,7 +40,7 @@ export const addCourse = courseObj => dispatch => {
 
 export const fetchCourse = () => dispatch => {
   dispatch(fetchCourseRequest());
-  axios.get('https://desolate-cove-81044.herokuapp.com/courses')
+  axios.get(`${API_LINK_ADDRESS}/courses`)
     .then(response => {
       const courses = response.data;
       dispatch(fetchCourseSuccess(courses));
