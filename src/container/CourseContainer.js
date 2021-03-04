@@ -50,7 +50,6 @@ const CourseContainer = () => {
       <span className="fas fa-frown color-green" />
     </div>
   );
-  console.log(coursesList);
   return (
     <>
       <BrowserRouter>
