@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { addCourse, setMessage } from '../redux/courses/coursesAction';
 
@@ -8,8 +7,8 @@ const AddsCourse = () => {
   const changeHandler = () => {
     dispatch(setMessage(''));
     document.getElementById('addCourseForm').reset();
-      <Redirect to={{ pathname: '/' }} />;
   };
+  const courseError = useSelector(state => state.course.error);
   const author = useSelector(state => state.user.user[0].user.id);
   const courseStatusMsg = useSelector(state => state.course.message);
   const [title, setTitle] = useState('');
@@ -48,6 +47,12 @@ const AddsCourse = () => {
       course_price: price,
     };
     dispatch(addCourse(newCourse));
+    setTitle('');
+    setDetails('');
+    setRequirements('');
+    setDifficulty('');
+    setImage('');
+    setPrice('');
   };
   if (courseStatusMsg === 'Course Added.') {
     setTimeout(changeHandler, 1000);
@@ -72,6 +77,9 @@ const AddsCourse = () => {
       </form>
       {courseStatusMsg === 'Course Added.'
         ? <p className="courseAdded">Course Added.</p>
+        : ''}
+      {courseError !== ''
+        ? <p className="courseAdded">Incomplete Details.</p>
         : ''}
     </>
   );

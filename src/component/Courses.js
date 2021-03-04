@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// eslint-disable-next-line no-unused-vars
 import { Link } from 'react-router-dom';
 
 const Courses = ({
-// eslint-disable-next-line no-unused-vars
   uniqueKey,
   title,
   index,

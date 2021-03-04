@@ -14,11 +14,11 @@ import { fetchFavouriteCourses } from '../redux/favourites/favouriteActions';
 import FavouritesContainer from './FavouritesContainer';
 
 const CourseContainer = () => {
-  const user = useSelector(state => state.user.user);
+  const user = useSelector(state => state.user.user[0].user);
+  console.log(user);
   const course = useSelector(state => state.course);
   const dispatch = useDispatch();
   useEffect(() => {
-    // dispatch(fetchFavouriteCourses(user.user.user_id));
     dispatch(fetchCourse());
   }, []);
   if (course.loading) {
@@ -26,26 +26,33 @@ const CourseContainer = () => {
       <Loading loading={user.loading} color="black" />
     );
   }
-  const coursesList = '';
-  // if (course.courses !== []) {
-  //   coursesList = course.courses.map(courseData => (
-  //     <Courses
-  //       key={courseData.course_id}
-  //       uniqueKey={courseData.course_id}
-  //       userType={user.user.user_type}
-  //       title={courseData.title}
-  //       details={courseData.details}
-  //       requirements={courseData.requirements}
-  //       difficulty={courseData.difficulty}
-  //       image={courseData.image}
-  //       price={courseData.price}
-  //       author={courseData.author}
-  //       Uploaded={courseData.date}
-  //       index={course.courses.indexOf(courseData) + 1}
-  //       total={course.courses.length}
-  //     />
-  //   ));
-  // }
+  let coursesList = '';
+  if (course.courses !== []) {
+    coursesList = course.courses.map(courseData => (
+      <Courses
+        key={courseData.course_id}
+        uniqueKey={courseData.course_id}
+        userType={user.user_type}
+        title={courseData.title}
+        details={courseData.details}
+        requirements={courseData.requirements}
+        difficulty={courseData.difficulty}
+        image={courseData.image}
+        price={courseData.price}
+        author={courseData.author}
+        Uploaded={courseData.date}
+        index={course.courses.indexOf(courseData) + 1}
+        total={course.courses.length}
+      />
+    ));
+  }
+  const noCourses = (
+    <div className="noCourse">
+      NO COURSES FOUND.&nbsp;&nbsp;
+      <span className="fas fa-frown color-green" />
+    </div>
+  );
+  console.log(coursesList);
   return (
     <>
       <BrowserRouter>
@@ -55,13 +62,8 @@ const CourseContainer = () => {
           <div className="courseContainerList">
             <Switch>
               <Route path="/" exact>
-                { coursesList === ''
-                  ? (
-                    <div className="noCourse">
-                      NO COURSES FOUND.&nbsp;&nbsp;
-                      <span className="fas fa-frown color-green" />
-                    </div>
-                  ) : coursesList}
+                { coursesList.length === 0
+                  ? noCourses : coursesList}
               </Route>
               <Route path="/couseDetails/:id" component={CourseDetailsContainer} />
               <Route path="/favourites" component={FavouritesContainer} />

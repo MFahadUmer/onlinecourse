@@ -9,7 +9,6 @@ const SignInContainer = () => {
   const [username, setUsername] = useState('');
   const [password, setpassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
-  console.log(user);
   const handleChange = e => {
     if (e.target.name === 'username') {
       setUsername(e.target.value);

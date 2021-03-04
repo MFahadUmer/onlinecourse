@@ -4,9 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import SignupContainer from './SignupContainer';
 import SignInContainer from './SignInContainer';
 import Loading from '../component/Loading';
-// eslint-disable-next-line no-unused-vars
 import AuthorPanelContainer from './AuthorPanelContainer';
-// eslint-disable-next-line no-unused-vars
 import CourseContainer from './CourseContainer';
 
 const AppContainer = () => {

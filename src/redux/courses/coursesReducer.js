@@ -30,6 +30,7 @@ const courseReducer = (state = initialState, action) => {
       };
 
     case FETCH_COURSE_FAILURE: return {
+      ...state,
       loading: false,
       error: action.payload,
     };
@@ -40,6 +41,7 @@ const courseReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         courses,
+        error: '',
       };
     case SET_MESSAGE: return {
       ...state,
