@@ -10,7 +10,7 @@ const AddsCourse = () => {
     document.getElementById('addCourseForm').reset();
       <Redirect to={{ pathname: '/' }} />;
   };
-  const author = useSelector(state => state.user.user.user.user_id);
+  const author = useSelector(state => state.user.user[0].user.id);
   const courseStatusMsg = useSelector(state => state.course.message);
   const [title, setTitle] = useState('');
   const [details, setDetails] = useState('');
