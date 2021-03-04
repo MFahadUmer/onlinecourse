@@ -3,10 +3,12 @@ import { useSelector } from 'react-redux';
 import Courses from '../component/Courses';
 
 const FavouritesContainer = () => {
+  const user = useSelector(state => state.user.user[0].user);
   const favouriteCourse = useSelector(state => state.favourite);
   const favouriteCourseList = favouriteCourse.courses.map(courseData => (
     <Courses
       key={courseData.course_id}
+      userType={user.user_type}
       uniqueKey={courseData.course_id}
       title={courseData.title}
       details={courseData.details}

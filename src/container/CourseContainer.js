@@ -5,21 +5,19 @@ import {
 } from 'react-router-dom';
 import Loading from '../component/Loading';
 import { fetchCourse } from '../redux/courses/coursesAction';
-// eslint-disable-next-line no-unused-vars
 import Courses from '../component/Courses';
 import UserNavbar from '../component/userNavbar';
 import CourseDetailsContainer from './CourseDetailsContainer';
-// eslint-disable-next-line no-unused-vars
 import { fetchFavouriteCourses } from '../redux/favourites/favouriteActions';
 import FavouritesContainer from './FavouritesContainer';
 
 const CourseContainer = () => {
   const user = useSelector(state => state.user.user[0].user);
-  console.log(user);
   const course = useSelector(state => state.course);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCourse());
+    dispatch(fetchFavouriteCourses(user.id));
   }, []);
   if (course.loading) {
     return (
