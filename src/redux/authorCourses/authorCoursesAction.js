@@ -3,7 +3,7 @@ import {
   FETCH_FAVOURITE_COURSE_FAILURE,
   FETCH_FAVOURITE_COURSE_REQUEST, FETCH_FAVOURITE_COURSE_SUCCESS,
 } from '../favourites/favouriteActionTypes';
-import API_LINK_ADDRESS from '../apiAddress';
+import API_LINK_ADDRESS, { header } from '../apiAddress';
 
 export const fetchAuthorCoursesRequest = () => ({
   type: FETCH_FAVOURITE_COURSE_REQUEST,
@@ -21,7 +21,7 @@ export const fetchAuthorCoursesFailure = error => ({
 
 export const fetchAuthorCourses = userId => dispatch => {
   dispatch(fetchAuthorCoursesRequest());
-  axios.post(`${API_LINK_ADDRESS}/authorCourses/${userId}`)
+  axios.post(`${API_LINK_ADDRESS}/authorCourses/${userId}`, header)
     .then(response => {
       const courses = response.data;
       dispatch(fetchAuthorCoursesSuccess(courses));

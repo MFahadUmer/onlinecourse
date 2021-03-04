@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { userRegistration } from '../redux/users/userAction';
-import AppContainer from './AppContainer';
+import Loading from '../component/Loading';
 
 const SignupContainer = () => {
   const user = useSelector(state => state.user);
@@ -28,46 +28,43 @@ const SignupContainer = () => {
       setpassword(e.target.value);
     }
   };
-
+  if (user.loading) {
+    return (
+      <Loading loading={user.loading} color="black" />
+    );
+  }
   const handleSubmit = () => {
     dispatch(userRegistration({
       first_name: firstname,
       last_name: lastname,
       username,
-      user_type: usertype,
+      user_type: usertype === '' ? 'user' : usertype,
       email,
       password,
     }));
   };
-
-  if (user.user.length === 0) {
-    return (
-      <div className="background signupContainer">
-        <div className="signupHeaderDiv">
-          <h2 className="signupHeader">Sign Up</h2>
-        </div>
-        <div className="signupForm">
-          <input className="inputFieldSignup" type="text" name="firstname" placeholder="First Name" onChange={e => handleChange(e)} />
-          <input className="inputFieldSignup" type="text" name="lastname" placeholder="Last Name" onChange={e => handleChange(e)} />
-          <input className="inputFieldSignup" type="text" name="username" placeholder="Username" onChange={e => handleChange(e)} />
-          <input className="inputFieldSignup" type="email" name="email" placeholder="Email" onChange={e => handleChange(e)} />
-          <select className="inputFieldSignup" name="usertype" defaultValue="user" onChange={e => handleChange(e)}>
-            <option value="user">User</option>
-            <option value="author">Author</option>
-          </select>
-          <input className="inputFieldSignup" type="password" name="password" placeholder="password" onChange={e => handleChange(e)} />
-          <input className="submitField" type="submit" value="SIGNUP" onClick={() => handleSubmit()} />
-          {user.error === '' ? '' : <p className="signinErrorMsg">Incomplete Details</p>}
-        </div>
-        <div>
-          <Link className="signinLink" to="/signin/">SIGNIN</Link>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <AppContainer />
+    <div className="background signupContainer">
+      <div className="signupHeaderDiv">
+        <h2 className="signupHeader">Sign Up</h2>
+      </div>
+      <div className="signupForm">
+        <input className="inputFieldSignup" type="text" name="firstname" placeholder="First Name" onChange={e => handleChange(e)} />
+        <input className="inputFieldSignup" type="text" name="lastname" placeholder="Last Name" onChange={e => handleChange(e)} />
+        <input className="inputFieldSignup" type="text" name="username" placeholder="Username" onChange={e => handleChange(e)} />
+        <input className="inputFieldSignup" type="email" name="email" placeholder="Email" onChange={e => handleChange(e)} />
+        <select className="inputFieldSignup" name="usertype" defaultValue="user" onChange={e => handleChange(e)}>
+          <option value="user">User</option>
+          <option value="author">Author</option>
+        </select>
+        <input className="inputFieldSignup" type="password" name="password" placeholder="password" onChange={e => handleChange(e)} />
+        <input className="submitField" type="submit" value="SIGNUP" onClick={() => handleSubmit()} />
+        {user.error === '' ? '' : <div className="warningText">Please Provide Necessary Details</div>}
+      </div>
+      <div>
+        <Link className="signinLink" to="/signin/">SIGNIN</Link>
+      </div>
+    </div>
   );
 };
 

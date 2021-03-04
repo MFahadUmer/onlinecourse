@@ -11,8 +11,11 @@ const CourseDetailsContainer = ({ match }) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user.user);
   const userId = user.user_id;
-  const favouriteCourses = useSelector(state => state.favourite.courses);
-  const favouriteCoursesIds = favouriteCourses.map(courses => courses.course_id);
+  const favouriteCourses = useSelector(state => state.favourite);
+  let favouriteCoursesIds = [];
+  if (favouriteCourses.courses !== []) {
+    favouriteCoursesIds = favouriteCourses.courses.map(courses => courses.course_id);
+  }
   const BookSearch = useSelector(state => state.course.courses);
   const courseId = parseInt(match.params.id, 10);
   const requiredBook = BookSearch.filter(course => course.course_id === courseId);

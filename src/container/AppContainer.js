@@ -1,61 +1,40 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { userLogin } from '../redux/users/userAction';
-import AuthorPanelContainer from './AuthorPanelContainer';
-import CourseContainer from './CourseContainer';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import SignupContainer from './SignupContainer';
+import SignInContainer from './SignInContainer';
 import Loading from '../component/Loading';
+// eslint-disable-next-line no-unused-vars
+import AuthorPanelContainer from './AuthorPanelContainer';
+// eslint-disable-next-line no-unused-vars
+import CourseContainer from './CourseContainer';
 
 const AppContainer = () => {
-  const loggedUser = useSelector(state => state.user);
-  const courses = useSelector(state => state.course.loading);
-  const dispatch = useDispatch();
-  const [username, setUsername] = useState('');
-  const [password, setpassword] = useState('');
-
-  if (loggedUser.loading) {
+  const user = useSelector(state => state.user);
+  if (user.loading) {
     return (
-      <Loading loading={loggedUser.loading} color="black" />
+      <Loading loading={user.loading} color="black" />
     );
   }
-  const handleChange = e => {
-    if (e.target.name === 'username') {
-      setUsername(e.target.value);
-    } else {
-      setpassword(e.target.value);
+  if (user.logStatus) {
+    if (user.user[0].user.user_type === 'author') {
+      return (
+        <AuthorPanelContainer userId={user.user[0].user.user_id} />
+      );
+    } if (user.user[0].user.user_type === 'user') {
+      return (
+        <CourseContainer />
+      );
     }
-  };
-  const handleSubmit = () => {
-    dispatch(userLogin({ username, password }));
-  };
-
-  if (loggedUser.user.length === 0) {
-    return (
-      <div className="background loginContainer">
-        <div className="signinHeaderDiv">
-          <h2 className="signinHeader">Sign In</h2>
-        </div>
-        <div className="paragraphDiv">
-          <p className="paragraph">Hello there! Sign in and start managing your system</p>
-        </div>
-        <div className="loginForm">
-          <input className="inputField" type="text" placeholder="USERNAME" name="username" onChange={e => handleChange(e)} />
-          <input className="inputField" type="password" placeholder="PASSWORD" name="password" onChange={e => handleChange(e)} />
-          <input className="submitField" type="submit" value="LOGIN" onClick={() => handleSubmit()} />
-          {loggedUser.error === '' ? '' : <p className="signinErrorMsg">Invalid Credentials</p>}
-          <Link className="signupLink" to="/signup/">SIGNUP</Link>
-        </div>
-      </div>
-    );
-  } if (loggedUser.user.user_type === 'author') {
-    return (
-      <AuthorPanelContainer userId={loggedUser.user.user_id} />
-    );
   }
   return (
-    <div>
-      <CourseContainer userId={loggedUser.user.user_id} loading={courses} />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={SignInContainer} exact />
+        <Route path="/signin/" component={SignInContainer} exact />
+        <Route path="/signup/" component={SignupContainer} exact />
+      </Switch>
+    </BrowserRouter>
   );
 };
 

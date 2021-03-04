@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// eslint-disable-next-line no-unused-vars
 import { addCourse, setMessage } from '../redux/courses/coursesAction';
 
 const AddsCourse = () => {
@@ -8,8 +8,9 @@ const AddsCourse = () => {
   const changeHandler = () => {
     dispatch(setMessage(''));
     document.getElementById('addCourseForm').reset();
+      <Redirect to={{ pathname: '/' }} />;
   };
-  const author = useSelector(state => state.user.user.user_id);
+  const author = useSelector(state => state.user.user.user.user_id);
   const courseStatusMsg = useSelector(state => state.course.message);
   const [title, setTitle] = useState('');
   const [details, setDetails] = useState('');
@@ -17,6 +18,7 @@ const AddsCourse = () => {
   const [difficulty, setDifficulty] = useState('');
   const [image, setImage] = useState('');
   const [price, setPrice] = useState('');
+  const imageAddress = 'https://itchronicles.com/wp-content/uploads/2018/02/bigstock-Big-Data-Futuristic-Visualizat-216534871.jpg';
 
   const handleChange = e => {
     if (e.target.name === 'title') {
@@ -26,7 +28,7 @@ const AddsCourse = () => {
     } else if (e.target.name === 'requirements') {
       setRequirements(e.target.value);
     } else if (e.target.name === 'difficulty') {
-      setDifficulty(e.target.value === '' ? 'Beginners' : e.target.value);
+      setDifficulty(e.target.value);
     } else if (e.target.name === 'image') {
       setImage(e.target.value);
     } else if (e.target.name === 'price') {
@@ -40,15 +42,15 @@ const AddsCourse = () => {
       course_title: title,
       course_details: details,
       course_author: author,
-      course_requirements: requirements,
-      course_difficulty: difficulty,
-      course_image: image,
+      course_requirements: requirements === '' ? 'No Requirements' : requirements,
+      course_difficulty: difficulty === '' ? 'Beginners' : difficulty,
+      course_image: image === '' ? imageAddress : image,
       course_price: price,
     };
     dispatch(addCourse(newCourse));
   };
   if (courseStatusMsg === 'Course Added.') {
-    setTimeout(changeHandler, 2000);
+    setTimeout(changeHandler, 1000);
   }
   return (
     <>

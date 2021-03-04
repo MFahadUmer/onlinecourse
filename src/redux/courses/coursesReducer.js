@@ -12,7 +12,7 @@ const initialState = {
   message: '',
 };
 
-let courses = '';
+let newCourses = '';
 
 const courseReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -21,11 +21,13 @@ const courseReducer = (state = initialState, action) => {
       loading: true,
     };
 
-    case FETCH_COURSE_SUCCESS: return {
-      loading: false,
-      courses: action.payload,
-      error: '',
-    };
+    case FETCH_COURSE_SUCCESS:
+      newCourses = state.courses.concat(action.payload);
+      return {
+        loading: false,
+        newCourses,
+        error: '',
+      };
 
     case FETCH_COURSE_FAILURE: return {
       loading: false,
@@ -33,11 +35,11 @@ const courseReducer = (state = initialState, action) => {
     };
 
     case ADD_COURSE:
-      courses = state.courses.concat(action.payload);
+      newCourses = state.courses.concat(action.payload);
       return {
         ...state,
         loading: false,
-        courses,
+        newCourses,
       };
     case SET_MESSAGE: return {
       ...state,

@@ -1,39 +1,36 @@
 import {
-  API_RESPONSE_STATUS, USER_FAILURE, USER_LOG_STATUS, USER_SIGNIN, USER_SIGNUP,
+  USER_API_FAILURE,
+  USER_API_REQUEST, USER_API_SUCCESS,
 } from './userActionTypes';
 
 const userInitialState = {
-  logStatus: false,
-  status: 400,
   loading: false,
+  logStatus: false,
   user: [],
   error: '',
 };
 
-let user = '';
+let user = [];
 
 const userReducer = (state = userInitialState, action) => {
   switch (action.type) {
-    case USER_SIGNUP:
-      user = action.payload;
-      return {
-        ...state, user,
-      };
-    case USER_SIGNIN:
-      user = action.payload;
-      return {
-        ...state, user,
-      };
-    case API_RESPONSE_STATUS: return {
+    case USER_API_REQUEST: return {
       ...state,
-      status: action.payload,
+      loading: true,
     };
-    case USER_LOG_STATUS: return {
+    case USER_API_SUCCESS:
+      user = state.user.concat(action.payload);
+      return {
+        ...state,
+        loading: false,
+        user,
+        error: '',
+        logStatus: true,
+      };
+    case USER_API_FAILURE: return {
       ...state,
-      logStatus: action.payload,
-    };
-    case USER_FAILURE: return {
-      ...state,
+      loading: false,
+      logStatus: false,
       error: action.payload,
     };
     default: return state;

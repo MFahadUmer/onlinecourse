@@ -8,8 +8,10 @@ import {
 import { useDispatch } from 'react-redux';
 import AuthorPanelNavbar from '../component/AuthorPanelNavbar';
 import AddsCourse from './AddsCourse';
+// eslint-disable-next-line no-unused-vars
 import AuthorCourses from './AuthorCourses';
 import { fetchAuthorCourses } from '../redux/authorCourses/authorCoursesAction';
+// eslint-disable-next-line no-unused-vars
 import CourseDetailsContainer from './CourseDetailsContainer';
 
 const AuthorPanelContainer = ({ userId }) => {
@@ -22,10 +24,9 @@ const AuthorPanelContainer = ({ userId }) => {
       <BrowserRouter>
         <AuthorPanelNavbar />
         <Switch>
-          <Route exact path="/authorCourses" component={AuthorCourses} />
-          <Route exact path="/" component={AuthorCourses} />
           <Route path="/addCourse" component={AddsCourse} exact />
-          <Route path="/couseDetails/:id" component={CourseDetailsContainer} />
+          <Route path="/" component={AuthorCourses} exact />
+          <Route path="/authorCourses" component={AuthorCourses} exact />
         </Switch>
       </BrowserRouter>
     </div>

@@ -6,7 +6,7 @@ import {
   FETCH_COURSE_SUCCESS,
   SET_MESSAGE,
 } from './coursesActionTypes';
-import API_LINK_ADDRESS from '../apiAddress';
+import API_LINK_ADDRESS, { header } from '../apiAddress';
 
 export const fetchCourseRequest = () => ({
   type: FETCH_COURSE_REQUEST,
@@ -34,7 +34,7 @@ export const setMessage = msg => ({
 
 export const addCourse = courseObj => dispatch => {
   dispatch(fetchCourseRequest());
-  axios.post(`${API_LINK_ADDRESS}/courses/`, courseObj)
+  axios.post(`${API_LINK_ADDRESS}/courses/`, courseObj, header)
     .then(response => {
       const course = response.data;
       dispatch(addCourseAction(course));
@@ -48,7 +48,7 @@ export const addCourse = courseObj => dispatch => {
 
 export const fetchCourse = () => dispatch => {
   dispatch(fetchCourseRequest());
-  axios.get(`${API_LINK_ADDRESS}/courses`)
+  axios.get(`${API_LINK_ADDRESS}/courses`, header)
     .then(response => {
       const courses = response.data;
       dispatch(fetchCourseSuccess(courses));

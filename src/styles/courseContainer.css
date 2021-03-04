@@ -5,6 +5,22 @@
   overflow-x: auto;
 }
 
+.color-green {
+  color: green;
+}
+
+.noCourse {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  color: #fa5943;
+}
+
 .allCoursesHeader {
   text-align: center;
   padding: 5px 0;

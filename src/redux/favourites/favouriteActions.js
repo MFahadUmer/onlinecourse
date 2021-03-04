@@ -5,7 +5,7 @@ import {
   FETCH_FAVOURITE_COURSE_REQUEST,
   FETCH_FAVOURITE_COURSE_SUCCESS, REMOVE_COURSE_FROM_FAVOURITE,
 } from './favouriteActionTypes';
-import API_LINK_ADDRESS from '../apiAddress';
+import API_LINK_ADDRESS, { header } from '../apiAddress';
 
 export const fetchFavouriteCourseRequest = () => ({
   type: FETCH_FAVOURITE_COURSE_REQUEST,
@@ -33,7 +33,7 @@ export const deleteFromFavouriteAction = userId => ({
 
 export const fetchFavouriteCourses = userId => dispatch => {
   dispatch(fetchFavouriteCourseRequest());
-  axios.post(`${API_LINK_ADDRESS}/userFavourite/${userId}`)
+  axios.post(`${API_LINK_ADDRESS}/userFavourite/${userId}`, header)
     .then(response => {
       const courses = response.data;
       dispatch(fetchFavouriteCourseSuccess(courses));
@@ -46,10 +46,10 @@ export const fetchFavouriteCourses = userId => dispatch => {
 
 export const addToFavourites = (courseObj, course) => dispatch => {
   dispatch(addCourseToFavourite(course));
-  axios.post(`${API_LINK_ADDRESS}/favourites/`, courseObj);
+  axios.post(`${API_LINK_ADDRESS}/favourites/`, courseObj, header);
 };
 
 export const deleteFromFavourite = favObj => dispatch => {
   dispatch(deleteFromFavouriteAction(favObj.course_id));
-  axios.post(`${API_LINK_ADDRESS}/deletefavourite/`, favObj);
+  axios.post(`${API_LINK_ADDRESS}/deletefavourite/`, favObj, header);
 };

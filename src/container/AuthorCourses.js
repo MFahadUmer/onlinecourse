@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Courses from '../component/Courses';
@@ -19,8 +18,8 @@ const AuthorCourses = () => {
   ));
   return (
     <>
-      <h2 className="allCoursesHeader">ALL COURSES ADDED BY YOU.</h2>
       {allCourses.loading ? <Loading loading={allCourses.loading} color="yellow" /> : '' }
+      <h2 className="allCoursesHeader">ALL COURSES ADDED BY YOU.</h2>
       <div className="courseContainerList">
         {authorCourses}
       </div>

@@ -3,40 +3,49 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   BrowserRouter, Switch, Route,
 } from 'react-router-dom';
+import Loading from '../component/Loading';
 import { fetchCourse } from '../redux/courses/coursesAction';
+// eslint-disable-next-line no-unused-vars
 import Courses from '../component/Courses';
 import UserNavbar from '../component/userNavbar';
 import CourseDetailsContainer from './CourseDetailsContainer';
+// eslint-disable-next-line no-unused-vars
 import { fetchFavouriteCourses } from '../redux/favourites/favouriteActions';
 import FavouritesContainer from './FavouritesContainer';
-import Loading from '../component/Loading';
 
 const CourseContainer = () => {
   const user = useSelector(state => state.user.user);
-  const userId = user.user_id;
   const course = useSelector(state => state.course);
   const dispatch = useDispatch();
   useEffect(() => {
+    // dispatch(fetchFavouriteCourses(user.user.user_id));
     dispatch(fetchCourse());
-    dispatch(fetchFavouriteCourses(userId));
   }, []);
-  const coursesList = course.courses.map(courseData => (
-    <Courses
-      key={courseData.course_id}
-      uniqueKey={courseData.course_id}
-      userType={user.user_type}
-      title={courseData.title}
-      details={courseData.details}
-      requirements={courseData.requirements}
-      difficulty={courseData.difficulty}
-      image={courseData.image}
-      price={courseData.price}
-      author={courseData.author}
-      Uploaded={courseData.date}
-      index={course.courses.indexOf(courseData) + 1}
-      total={course.courses.length}
-    />
-  ));
+  if (course.loading) {
+    return (
+      <Loading loading={user.loading} color="black" />
+    );
+  }
+  const coursesList = '';
+  // if (course.courses !== []) {
+  //   coursesList = course.courses.map(courseData => (
+  //     <Courses
+  //       key={courseData.course_id}
+  //       uniqueKey={courseData.course_id}
+  //       userType={user.user.user_type}
+  //       title={courseData.title}
+  //       details={courseData.details}
+  //       requirements={courseData.requirements}
+  //       difficulty={courseData.difficulty}
+  //       image={courseData.image}
+  //       price={courseData.price}
+  //       author={courseData.author}
+  //       Uploaded={courseData.date}
+  //       index={course.courses.indexOf(courseData) + 1}
+  //       total={course.courses.length}
+  //     />
+  //   ));
+  // }
   return (
     <>
       <BrowserRouter>
@@ -46,7 +55,13 @@ const CourseContainer = () => {
           <div className="courseContainerList">
             <Switch>
               <Route path="/" exact>
-                {coursesList}
+                { coursesList === ''
+                  ? (
+                    <div className="noCourse">
+                      NO COURSES FOUND.&nbsp;&nbsp;
+                      <span className="fas fa-frown color-green" />
+                    </div>
+                  ) : coursesList}
               </Route>
               <Route path="/couseDetails/:id" component={CourseDetailsContainer} />
               <Route path="/favourites" component={FavouritesContainer} />
