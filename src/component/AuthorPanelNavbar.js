@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 const AuthorPanelNavbar = () => (
   <div className="authorNavbar">
     <Link to="/">
