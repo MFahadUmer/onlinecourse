@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  BrowserRouter, Switch, Route,
+  BrowserRouter, Switch, Route, Redirect,
 } from 'react-router-dom';
 import Loading from '../component/Loading';
 import { fetchCourse } from '../redux/courses/coursesAction';
@@ -64,6 +64,7 @@ const CourseContainer = () => {
               </Route>
               <Route path="/couseDetails/:id" component={CourseDetailsContainer} />
               <Route path="/favourites" component={FavouritesContainer} />
+              <Redirect to="/" />
             </Switch>
           </div>
         </div>

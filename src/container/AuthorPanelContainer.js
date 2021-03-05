@@ -3,6 +3,7 @@ import {
   BrowserRouter,
   Switch,
   Route,
+  Redirect,
 } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import AuthorPanelNavbar from '../component/AuthorPanelNavbar';
@@ -22,6 +23,7 @@ const AuthorPanelContainer = () => {
         <Switch>
           <Route path="/addCourse" component={AddsCourse} exact />
           <Route path="/" component={AuthorCourses} exact />
+          <Redirect to="/" />
         </Switch>
       </BrowserRouter>
     </div>
