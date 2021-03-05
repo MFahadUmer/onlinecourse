@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User Navbar Test matches the Navbar component snapshot 1`] = `
+<div
+  className="userNavbar"
+>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    <span
+      className="fas fa-arrow-circle-left userNavbarLink"
+    />
+  </a>
+  <a
+    className="userNavbarLink"
+    href="/favourites"
+    onClick={[Function]}
+  >
+    Favourites
+  </a>
+  <a
+    className="userNavbarLink"
+    href="https://reactonlinecourse.herokuapp.com/"
+  >
+    <span
+      className="fas fa-sign-out-alt userNavbarLink"
+    />
+  </a>
+</div>
+`;

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Suit should Match the Courses componenrender title on course componentt snapshot 1`] = `
+<div
+  className="coursesContainer"
+>
+  <div
+    className="courseContainerCourse"
+  >
+    <img
+      alt="difficulty"
+      className="courseImage"
+      src="difficulty"
+    />
+    <div
+      className="userCourseDetailsContainer"
+    >
+      <div
+        className="userCourseDetailsDetails"
+      >
+        <h2
+          className="userCoursesTitle"
+        >
+          <a
+            className="courseTitleLink"
+            href="/couseDetails/1"
+            onClick={[Function]}
+          >
+            React and Redux
+          </a>
+        </h2>
+        <p
+          className="userCoursesPrice"
+        >
+          100 $
+        </p>
+      </div>
+      <div
+        className="userCourseDetailsDetails"
+      >
+        <div>
+          <span
+            className="fas fa-star starColor"
+          />
+          <span
+            className="fas fa-star starColor"
+          />
+          <span
+            className="fas fa-star starColor"
+          />
+          <span
+            className="fas fa-star starColor"
+          />
+          <span
+            className="fas fa-star"
+          />
+        </div>
+        <p>
+           Per Month 
+        </p>
+      </div>
+    </div>
+    <div
+      className="numbering"
+    >
+      1 / 1
+    </div>
+  </div>
+</div>
+`;
