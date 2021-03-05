@@ -13,7 +13,7 @@ const CourseDetailsContainer = ({ match }) => {
   const userId = user.user_id;
   const favouriteCourses = useSelector(state => state.favourite);
   let favouriteCoursesIds = [];
-  if (favouriteCourses.courses !== []) {
+  if (favouriteCourses.courses !== ['']) {
     favouriteCoursesIds = favouriteCourses.courses.map(courses => courses.course_id);
   }
   const BookSearch = useSelector(state => state.course.courses);

@@ -11,7 +11,7 @@ const initialFavouriteState = {
   error: '',
 };
 
-let course = '';
+let courses = [];
 
 const favouriteReducer = (state = initialFavouriteState, action) => {
   switch (action.type) {
@@ -28,20 +28,20 @@ const favouriteReducer = (state = initialFavouriteState, action) => {
     case FETCH_FAVOURITE_COURSE_FAILURE: return {
       ...state,
       loading: false,
-      courses: '',
+      courses: [],
       error: action.payload,
     };
     case ADD_COURSE_TO_FAVOURITE:
-      course = state.courses.concat(action.payload);
+      courses = state.courses.concat(action.payload);
       return {
         ...state,
-        courses: course,
+        courses,
       };
     case REMOVE_COURSE_FROM_FAVOURITE:
-      course = state.courses.filter(course => course.course_id !== action.payload);
+      courses = state.courses.filter(course => course.course_id !== action.payload);
       return {
         ...state,
-        courses: course,
+        courses,
       };
     default: return state;
   }
