@@ -44,9 +44,16 @@ export const fetchFavouriteCourses = userId => dispatch => {
     });
 };
 
-export const addToFavourites = (courseObj, course) => dispatch => {
-  dispatch(addCourseToFavourite(course));
-  axios.post(`${API_LINK_ADDRESS}/favourites/`, courseObj, header);
+export const addToFavourites = courseObj => dispatch => {
+  dispatch(fetchFavouriteCourseRequest());
+  axios.post(`${API_LINK_ADDRESS}/favourites/`, courseObj, header)
+    .then(respose => {
+      const { data } = respose;
+      dispatch(addCourseToFavourite(data));
+    }).catch(error => {
+      const errorMsg = error.message;
+      dispatch(fetchFavouriteCoursesFailure(errorMsg));
+    });
 };
 
 export const deleteFromFavourite = favObj => dispatch => {

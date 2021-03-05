@@ -10,7 +10,7 @@ import {
 const CourseDetailsContainer = ({ match }) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user.user);
-  const userId = user.user_id;
+  const userId = user[0].user.id;
   const favouriteCourses = useSelector(state => state.favourite);
   let favouriteCoursesIds = [];
   if (favouriteCourses.courses !== ['']) {
