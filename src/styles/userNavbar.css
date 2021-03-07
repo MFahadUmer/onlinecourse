@@ -14,14 +14,15 @@
 }
 
 .dropdown-content {
-  background-color: #f7f5fa;
-  opacity: 80%;
+  opacity: 90%;
   height: 80vh;
   width: 40vw;
   position: absolute;
   flex-direction: column;
   transition: left 0.5s ease-out;
   left: -145px;
+  z-index: 2;
+  background-color: #f7f5fa;
 }
 
 .dropDownLinksContainer {
@@ -36,6 +37,8 @@
   text-decoration: none;
   padding: 15px 15px;
   color: #0e1d33;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .dropdown:hover .dropdown-content {
