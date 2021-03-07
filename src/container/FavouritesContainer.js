@@ -33,13 +33,8 @@ const FavouritesContainer = () => {
   }
   return (
     <>
-      <div>
-        <div className="headerContainer">
-          <h2 className="allCoursesHeader">FAVOURUTE COURSES.</h2>
-        </div>
-        <div className="courseContainerList">
-          {favouriteCourse.courses.length === 0 ? <h2 className="noFAv">NO COURSES ADDED.</h2> : favouriteCourseList }
-        </div>
+      <div className="courseContainerList">
+        {favouriteCourse.courses.length === 0 ? <h2 className="noFAv">NO COURSES ADDED.</h2> : favouriteCourseList }
       </div>
     </>
   );

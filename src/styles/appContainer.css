@@ -58,10 +58,7 @@
 }
 
 .background {
-  background-image: url("../images/signinBackground.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  backface-visibility: hidden;
+  background-color: #0e1d33;
 }
 
 .paragraphDiv {

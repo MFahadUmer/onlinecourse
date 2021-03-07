@@ -8,6 +8,40 @@
   margin: 5px 0;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  background-color: #f7f5fa;
+  opacity: 80%;
+  height: 80vh;
+  width: 40vw;
+  position: absolute;
+  flex-direction: column;
+  transition: left 0.5s ease-out;
+  left: -145px;
+}
+
+.dropDownLinksContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 20px;
+}
+
+.dropDownLinks {
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  padding: 15px 15px;
+  color: #0e1d33;
+}
+
+.dropdown:hover .dropdown-content {
+  left: -15px;
+}
+
 .userNavbarLink {
   text-decoration: none;
   font-weight: bold;
