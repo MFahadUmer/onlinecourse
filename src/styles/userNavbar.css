@@ -19,7 +19,7 @@
   position: absolute;
   flex-direction: column;
   transition: left 0.5s ease-out;
-  left: -145px;
+  left: -200px;
   z-index: 2;
   background-color: #f7f5fa;
 }
