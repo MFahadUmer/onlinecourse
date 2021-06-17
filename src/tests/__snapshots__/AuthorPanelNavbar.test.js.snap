@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Author Panel Navbar Test matches the Navbar component snapshot 1`] = `
+<div
+  className="authorNavbar"
+>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    <span
+      className="fas fa-arrow-circle-left authorNavbarLink"
+    />
+  </a>
+  <a
+    className="authorNavbarLink"
+    href="/addCourse"
+    onClick={[Function]}
+  >
+    Add Course
+  </a>
+  <a
+    className="authorNavbarLink"
+    href="https://reactonlinecourse.herokuapp.com/"
+  >
+    Logout
+  </a>
+</div>
+`;

@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Suit should match the course details component snapshot 1`] = `
+<div>
+  <div
+    className="singleCourseDetailsContainer"
+  >
+    <img
+      alt=""
+      className="singleCourseDetailsImage"
+      src=""
+    />
+    <div
+      className="singleCourseDetailsImageDetails"
+    >
+      <div
+        className="singleCourseDetailsAuthor"
+      >
+        <div
+          className="singleCourseDetailsAuthorImage"
+        >
+          <img
+            alt=""
+            className="authorImage"
+            src="https://www.ocf.berkeley.edu/~dblab/blog/wp-content/uploads/2012/01/icon-profile.png"
+          />
+        </div>
+        <div>
+          <p
+            className="authorname"
+          >
+            Author Name
+          </p>
+          <p>
+            <span
+              className="fas fa-star starColor"
+            />
+            <span
+              className="fas fa-star starColor"
+            />
+            <span
+              className="fas fa-star starColor"
+            />
+            <span
+              className="fas fa-star starColor"
+            />
+            <span
+              className="fas fa-star"
+            />
+          </p>
+        </div>
+      </div>
+      <div
+        className="singleCoursePrice"
+      >
+        <p>
+          100 $
+        </p>
+        <p>
+          Per Month
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="singleCourseDetails"
+  >
+    <h3
+      className="aboutThisCourse"
+    >
+      React and Redux
+    </h3>
+    <div>
+      <p
+        className="courseDetailsParagraph"
+      >
+        A Very Nice Course
+      </p>
+      <p
+        className="courseDetailsParagraph"
+      >
+        Difficulty =&gt; 
+      </p>
+      <p
+        className="courseDetailsParagraph"
+      >
+        Requirements =&gt; 
+      </p>
+    </div>
+  </div>
+  <div
+    className="addToFavourites"
+  >
+    <button
+      className="addToFavouritesLink"
+      name="Remove From Favourites"
+      onClick={[Function]}
+      type="submit"
+    >
+      Remove From Favourites
+    </button>
+  </div>
+</div>
+`;
