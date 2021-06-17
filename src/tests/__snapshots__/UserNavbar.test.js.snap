@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User Navbar Test matches the Navbar component snapshot 1`] = `
+<div
+  className="userNavbar"
+>
+  <div>
+    <div
+      className="dropdown"
+    >
+      <span
+        className="fas fa-bars userNavbarLink dropdown"
+      />
+      <div
+        className="dropdown-content"
+      >
+        <div
+          className="dropDownLinksContainer"
+        >
+          <a
+            className="dropDownLinks"
+            href="/favourites"
+            onClick={[Function]}
+          >
+             Favourites 
+          </a>
+          <a
+            className="dropDownLinks"
+            href="https://reactonlinecourse.herokuapp.com/"
+          >
+            Logout
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p
+    className="userNavbarLink"
+  >
+    Courses
+  </p>
+  <p>
+    <span
+      className="fas fa-search userNavbarLink"
+    />
+  </p>
+</div>
+`;

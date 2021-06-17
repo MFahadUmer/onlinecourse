@@ -1,0 +1,65 @@
+.signupContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.warningText {
+  text-align: center;
+  background-color: #fa5943;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 10px 0;
+  padding: 5px 25px;
+}
+
+.signupHeaderDiv {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.signupHeader {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  width: 100vw;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.signinLink {
+  margin-bottom: 15px;
+  background-color: #fa5943;
+  width: 220px;
+  height: 33px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.inputFieldSignup {
+  margin: 10px 0;
+  width: 220px;
+  height: 35px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 0.5px solid black;
+}
